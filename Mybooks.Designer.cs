@@ -29,11 +29,18 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LowerPaner = new System.Windows.Forms.Panel();
             this.LabelMybooks = new System.Windows.Forms.Label();
             this.DgridvMybooks = new System.Windows.Forms.DataGridView();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Transaction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +66,7 @@
             this.LabelMybooks.AutoSize = true;
             this.LabelMybooks.BackColor = System.Drawing.SystemColors.Menu;
             this.LabelMybooks.Font = new System.Drawing.Font("Mongolian Baiti", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelMybooks.Location = new System.Drawing.Point(12, 17);
+            this.LabelMybooks.Location = new System.Drawing.Point(230, 17);
             this.LabelMybooks.Name = "LabelMybooks";
             this.LabelMybooks.Size = new System.Drawing.Size(470, 29);
             this.LabelMybooks.TabIndex = 0;
@@ -67,7 +74,12 @@
             // 
             // DgridvMybooks
             // 
+            this.DgridvMybooks.AllowUserToAddRows = false;
+            this.DgridvMybooks.AllowUserToDeleteRows = false;
+            this.DgridvMybooks.AllowUserToResizeColumns = false;
+            this.DgridvMybooks.AllowUserToResizeRows = false;
             this.DgridvMybooks.BackgroundColor = System.Drawing.Color.White;
+            this.DgridvMybooks.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.DgridvMybooks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
@@ -79,67 +91,107 @@
             this.DgridvMybooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgridvMybooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridvMybooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.number,
             this.Transaction,
             this.Title,
             this.Category,
             this.ISBN,
             this.ReturnDate});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgridvMybooks.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgridvMybooks.DefaultCellStyle = dataGridViewCellStyle8;
             this.DgridvMybooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgridvMybooks.EnableHeadersVisualStyles = false;
-            this.DgridvMybooks.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DgridvMybooks.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.DgridvMybooks.Location = new System.Drawing.Point(0, 0);
             this.DgridvMybooks.Name = "DgridvMybooks";
             this.DgridvMybooks.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgridvMybooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridvMybooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.DgridvMybooks.RowHeadersVisible = false;
+            this.DgridvMybooks.RowHeadersWidth = 45;
+            this.DgridvMybooks.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DgridvMybooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgridvMybooks.Size = new System.Drawing.Size(937, 526);
             this.DgridvMybooks.StandardTab = true;
             this.DgridvMybooks.TabIndex = 7;
             this.DgridvMybooks.TabStop = false;
             // 
+            // number
+            // 
+            this.number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Transparent;
+            this.number.DefaultCellStyle = dataGridViewCellStyle2;
+            this.number.DividerWidth = 5;
+            this.number.FillWeight = 10F;
+            this.number.HeaderText = "#";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
+            this.number.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.number.Width = 47;
+            // 
             // Transaction
             // 
             this.Transaction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.Transaction.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Transaction.DividerWidth = 5;
             this.Transaction.HeaderText = "Transaction";
             this.Transaction.Name = "Transaction";
             this.Transaction.ReadOnly = true;
-            this.Transaction.Width = 118;
+            this.Transaction.Width = 123;
             // 
             // Title
             // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.Title.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Title.DividerWidth = 5;
             this.Title.HeaderText = "Title";
             this.Title.Name = "Title";
             this.Title.ReadOnly = true;
             // 
             // Category
             // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.Category.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Category.DividerWidth = 5;
             this.Category.HeaderText = "Category";
             this.Category.Name = "Category";
             this.Category.ReadOnly = true;
             // 
             // ISBN
             // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.ISBN.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ISBN.DividerWidth = 5;
             this.ISBN.HeaderText = "ISBN";
             this.ISBN.Name = "ISBN";
             this.ISBN.ReadOnly = true;
             // 
             // ReturnDate
             // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.ReturnDate.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ReturnDate.DividerWidth = 5;
             this.ReturnDate.HeaderText = "Return Date";
             this.ReturnDate.Name = "ReturnDate";
             this.ReturnDate.ReadOnly = true;
@@ -166,6 +218,7 @@
         private System.Windows.Forms.Panel LowerPaner;
         private System.Windows.Forms.DataGridView DgridvMybooks;
         private System.Windows.Forms.Label LabelMybooks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Transaction;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;

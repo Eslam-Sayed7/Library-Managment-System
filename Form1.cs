@@ -39,7 +39,8 @@ namespace Library_Managment_System
 
         private void btn_My_books_Click(object sender, EventArgs e)
         {
-            Application.Run(new Mybooks());
+            Mybooks mybooks = new Mybooks(GlobalVariables.GlobalVariables.uid);
+            mybooks.Show();
         }
 
         private void button1_Click(object sender, EventArgs e) // logout btn
