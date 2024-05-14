@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace Library_Managment_System
 {
     public partial class Sign_up : Form
@@ -61,7 +62,7 @@ namespace Library_Managment_System
         }
         private bool isDigit(char digit)
         {
-            if(digit < '0'|| digit > '9')
+            if (digit < '0' || digit > '9')
             {
                 return false;
             }
@@ -89,7 +90,8 @@ namespace Library_Managment_System
         private void button1_Click(object sender, EventArgs e)
         {
             bool k = true;
-            if (string.IsNullOrEmpty(textBox1.Text.Trim())){
+            if (string.IsNullOrEmpty(textBox1.Text.Trim()))
+            {
                 MessageBox.Show("The firstName is Empty");
                 k = false;
             }
@@ -199,6 +201,16 @@ namespace Library_Managment_System
             this.Hide();
             x.ShowDialog();
             this.Close();
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
