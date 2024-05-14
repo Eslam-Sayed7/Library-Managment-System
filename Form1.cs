@@ -21,10 +21,11 @@ namespace Library_Managment_System
 
         public Form1()
         {
+
             InitializeComponent();
-            Con = new SqlConnection(Dbconect.myConnection());
-            Con.Open();
-            MessageBox.Show("Database is connected");
+            //Con = new SqlConnection(Dbconect.myConnection());
+            //Con.Open();
+           // MessageBox.Show("Database is connected");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,9 +44,10 @@ namespace Library_Managment_System
             mybooks.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e) // logout btn
+        private void button1_Click(object sender, EventArgs e) //
         {
             // logging out from the global logged user 
+
         
         }
 
