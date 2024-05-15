@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using LiveLibraryDB;
+using System.Globalization;
 
 
 namespace Library_Managment_System
@@ -18,16 +19,22 @@ namespace Library_Managment_System
         SqlConnection Con = new SqlConnection();
         SqlCommand Cmd = new SqlCommand();
         DBConnect Dbconect = new DBConnect();
+        SqlDataReader dr;
+
 
         public MainForm(int uid)
         {
             /*label_user_name.Text = "user name : " + uid.ToString();*/
             InitializeComponent();
             Con = new SqlConnection(Dbconect.myConnection());
-            Con.Open();
-           // MessageBox.Show("Database is connected");
+            LoadLibraryBooks();
+            /*Con.Open();*/
+            // MessageBox.Show("Database is connected");
         }
 
+        ~MainForm()
+        {
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -44,7 +51,7 @@ namespace Library_Managment_System
             mybooks.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e) //
+        private void logout_Click(object sender, EventArgs e) //
         {
             // logging out from the global logged user 
 
@@ -52,34 +59,43 @@ namespace Library_Managment_System
         }
 
 
-        private void btn_favorite_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panel_window_title_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel_main_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_settings_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
 
+        public void LoadLibraryBooks() // load available library books for a user to borrow 
+        {
+            int i = 0;
+            DgridvLibrarybooks.Rows.Clear();
+            Con.Open();
+
+            // Create the SqlCommand object with the SQL query and connection
+            Cmd = new SqlCommand(
+            "SELECT bk.bookId, bk.title, cat.name AS categoryName, bk.isbn, bk.publicationYear " +
+            "FROM Books AS bk " +
+            "JOIN category AS cat ON cat.categoryId = bk.categoryId " +
+            "LEFT JOIN borrow AS bw ON bk.bookId = bw.bookId"
+            , Con);
+
+
+
+            // Add parameters to the SqlCommand object
+            Cmd.Parameters.AddWithValue("@LogginID", GlobalVariables.GlobalVariables.uid);
+
+            // Execute the query
+            dr = Cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                i++;
+                DgridvLibrarybooks.Rows.Add(i, dr["bookId"].ToString(), dr["title"].ToString(), dr["categoryName"].ToString(), dr["isbn"].ToString(), dr["publicationYear"].ToString());
+            }
+
+            dr.Close();
+            Con.Close();
         }
+
     }
 }

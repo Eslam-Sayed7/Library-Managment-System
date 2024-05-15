@@ -55,15 +55,15 @@ namespace Library_Managment_System
                 return true;
             return false;
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // sign up button
         {
             bool k = true;
-            if (string.IsNullOrEmpty(textBox1.Text.Trim()))
+            if (string.IsNullOrEmpty(FirstNameTextBox.Text.Trim()))
             {
                 MessageBox.Show("The firstName is Empty");
                 k = false;
             }
-            if (string.IsNullOrEmpty(textBox2.Text.Trim()))
+            if (string.IsNullOrEmpty(LastNameTextBox.Text.Trim()))
             {
                 MessageBox.Show("The lastName is Empty");
                 k = false;
@@ -81,18 +81,18 @@ namespace Library_Managment_System
                 k = false;
 
             }
-            if (string.IsNullOrEmpty(textBox5.Text.Trim()))
+            if (string.IsNullOrEmpty(EmailSignupTextBox.Text.Trim()))
             {
                 MessageBox.Show("The Email is Empty");
                 k = false;
 
             }
-            if (string.IsNullOrEmpty(textBox6.Text.Trim()))
+            if (string.IsNullOrEmpty(PasswordSignUpTxtBox.Text.Trim()))
             {
                 MessageBox.Show("The Password is Empty");
                 k = false;
             }
-            if (string.IsNullOrEmpty(comboBox1.Text.Trim()))
+            if (string.IsNullOrEmpty(IsAdmincomboBox1.Text.Trim()))
             {
                 MessageBox.Show("This field is required");
                 k = false;
@@ -100,12 +100,13 @@ namespace Library_Managment_System
             if (k)
             {
                 //change the path on your local computer 
-                string x = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Body\Library-Managment-System\libraryDB\LiveLibraryDB.mdf;Integrated Security=True;Connect Timeout=30";
-                con = new SqlConnection(x);
+
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf"";Integrated Security=True;Connect Timeout=30";
+                con = new SqlConnection(connectionString);
                 con.Open();
                 cmd = new SqlCommand("insert into users(firstName,lastName,homeAddress,phone,email,password,isAdmin)values(@firstName,@lastName,@homeAddress,@phone,@email,@password,@isAdmin);", con);
-                cmd.Parameters.AddWithValue("@firstName", textBox1.Text);
-                cmd.Parameters.AddWithValue("@lastName", textBox2.Text);
+                cmd.Parameters.AddWithValue("@firstName", FirstNameTextBox.Text);
+                cmd.Parameters.AddWithValue("@lastName", LastNameTextBox.Text);
                 cmd.Parameters.AddWithValue("@homeAddress", textBox3.Text);
                 /*==========================================================================================*/
                 //checking the phone 
@@ -121,9 +122,9 @@ namespace Library_Managment_System
                 //end of the check
                 /*==========================================================================================*/
                 //checking the email 
-                if (checkEmail(textBox5.Text))
+                if (checkEmail(EmailSignupTextBox.Text))
                 {
-                    cmd.Parameters.AddWithValue("@email", textBox5.Text);
+                    cmd.Parameters.AddWithValue("@email", EmailSignupTextBox.Text);
                 }
                 else
                 {
@@ -132,8 +133,8 @@ namespace Library_Managment_System
                 }
                 //end of the check
                 /*==========================================================================================*/
-                cmd.Parameters.AddWithValue("@password", textBox6.Text);
-                if (comboBox1.Text == "Yes")
+                cmd.Parameters.AddWithValue("@password", PasswordSignUpTxtBox.Text);
+                if (IsAdmincomboBox1.Text == "Yes")
                 {
                     cmd.Parameters.AddWithValue("@isAdmin", 1);
 
@@ -152,9 +153,10 @@ namespace Library_Managment_System
                 return;
             }
         }
-        private void button2_Click(object sender, EventArgs e)
+        
+        private void button2_Click(object sender, EventArgs e) // already have an account --> go to login form
         {
-            Login x = new Login();
+            Login x = new Login(EmailSignupTextBox.Text , PasswordSignUpTxtBox.Text);
             this.Hide();
             x.ShowDialog();
             this.Close();
@@ -166,11 +168,11 @@ namespace Library_Managment_System
         {
             if (checkBox2.Checked)
             {
-                textBox6.UseSystemPasswordChar = false;
+                PasswordSignUpTxtBox.UseSystemPasswordChar = false;
             }
             else
             {
-                textBox6.UseSystemPasswordChar = true;
+                PasswordSignUpTxtBox.UseSystemPasswordChar = true;
             }
         }
     }

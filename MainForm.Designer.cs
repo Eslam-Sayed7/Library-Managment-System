@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_sidebar = new System.Windows.Forms.Panel();
-            this.btn_logout = new System.Windows.Forms.Button();
+            this.LogoutBtn = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
             this.btn_favorite = new System.Windows.Forms.Button();
             this.btn_My_books = new System.Windows.Forms.Button();
@@ -43,15 +47,25 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.DgridvLibrarybooks = new System.Windows.Forms.DataGridView();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publicationYR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_sidebar.SuspendLayout();
             this.panel_logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel_main.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridvLibrarybooks)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_sidebar
             // 
-            this.panel_sidebar.Controls.Add(this.btn_logout);
+            this.panel_sidebar.Controls.Add(this.LogoutBtn);
             this.panel_sidebar.Controls.Add(this.btn_settings);
             this.panel_sidebar.Controls.Add(this.btn_favorite);
             this.panel_sidebar.Controls.Add(this.btn_My_books);
@@ -64,20 +78,20 @@
             this.panel_sidebar.TabIndex = 0;
             this.panel_sidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // btn_logout
+            // LogoutBtn
             // 
-            this.btn_logout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_logout.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_logout.ForeColor = System.Drawing.Color.White;
-            this.btn_logout.Location = new System.Drawing.Point(0, 356);
-            this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(199, 62);
-            this.btn_logout.TabIndex = 6;
-            this.btn_logout.Text = "Log out";
-            this.btn_logout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_logout.UseVisualStyleBackColor = true;
-            this.btn_logout.Click += new System.EventHandler(this.button1_Click);
+            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutBtn.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoutBtn.ForeColor = System.Drawing.Color.White;
+            this.LogoutBtn.Location = new System.Drawing.Point(0, 356);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(199, 62);
+            this.LogoutBtn.TabIndex = 6;
+            this.LogoutBtn.Text = "Log out";
+            this.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LogoutBtn.UseVisualStyleBackColor = true;
+            this.LogoutBtn.Click += new System.EventHandler(this.logout_Click);
             // 
             // btn_settings
             // 
@@ -106,7 +120,6 @@
             this.btn_favorite.Text = "Favourite";
             this.btn_favorite.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_favorite.UseVisualStyleBackColor = true;
-            this.btn_favorite.Click += new System.EventHandler(this.btn_favorite_Click);
             // 
             // btn_My_books
             // 
@@ -185,7 +198,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(985, 55);
             this.panel1.TabIndex = 5;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
             // label1
             // 
@@ -198,16 +210,129 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "User Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel_main
             // 
             this.panel_main.BackColor = System.Drawing.Color.White;
+            this.panel_main.Controls.Add(this.DgridvLibrarybooks);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(199, 55);
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(985, 606);
             this.panel_main.TabIndex = 6;
+            // 
+            // DgridvLibrarybooks
+            // 
+            this.DgridvLibrarybooks.AllowUserToAddRows = false;
+            this.DgridvLibrarybooks.AllowUserToDeleteRows = false;
+            this.DgridvLibrarybooks.AllowUserToResizeColumns = false;
+            this.DgridvLibrarybooks.AllowUserToResizeRows = false;
+            this.DgridvLibrarybooks.BackgroundColor = System.Drawing.Color.White;
+            this.DgridvLibrarybooks.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.DgridvLibrarybooks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridvLibrarybooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgridvLibrarybooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridvLibrarybooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.number,
+            this.bookid,
+            this.title,
+            this.category,
+            this.isbn,
+            this.publicationYR,
+            this.author});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgridvLibrarybooks.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DgridvLibrarybooks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgridvLibrarybooks.EnableHeadersVisualStyles = false;
+            this.DgridvLibrarybooks.Location = new System.Drawing.Point(0, 0);
+            this.DgridvLibrarybooks.Name = "DgridvLibrarybooks";
+            this.DgridvLibrarybooks.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridvLibrarybooks.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.DgridvLibrarybooks.RowHeadersVisible = false;
+            this.DgridvLibrarybooks.RowHeadersWidth = 100;
+            this.DgridvLibrarybooks.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DgridvLibrarybooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgridvLibrarybooks.Size = new System.Drawing.Size(985, 606);
+            this.DgridvLibrarybooks.StandardTab = true;
+            this.DgridvLibrarybooks.TabIndex = 8;
+            this.DgridvLibrarybooks.TabStop = false;
+            // 
+            // number
+            // 
+            this.number.HeaderText = "#";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
+            this.number.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // bookid
+            // 
+            this.bookid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            this.bookid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.bookid.HeaderText = "Book Id";
+            this.bookid.Name = "bookid";
+            this.bookid.ReadOnly = true;
+            this.bookid.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.bookid.Width = 62;
+            // 
+            // title
+            // 
+            this.title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.title.HeaderText = "Book title";
+            this.title.Name = "title";
+            this.title.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // isbn
+            // 
+            this.isbn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.isbn.HeaderText = "ISBN";
+            this.isbn.Name = "isbn";
+            this.isbn.ReadOnly = true;
+            // 
+            // publicationYR
+            // 
+            this.publicationYR.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.publicationYR.HeaderText = "Publication year";
+            this.publicationYR.Name = "publicationYR";
+            this.publicationYR.ReadOnly = true;
+            // 
+            // author
+            // 
+            this.author.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.author.HeaderText = "Author";
+            this.author.Name = "author";
+            this.author.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -232,6 +357,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel_main.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgridvLibrarybooks)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -247,11 +374,19 @@
         private System.Windows.Forms.Panel panel_main;
         private System.Windows.Forms.Button btn_My_books;
         private System.Windows.Forms.Button btn_favorite;
-        private System.Windows.Forms.Button btn_logout;
+        private System.Windows.Forms.Button LogoutBtn;
         private System.Windows.Forms.Button btn_settings;
         private System.Windows.Forms.Label label_user_name;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView DgridvLibrarybooks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publicationYR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn author;
     }
 }
 
