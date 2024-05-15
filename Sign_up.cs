@@ -100,7 +100,7 @@ namespace Library_Managment_System
             if (k)
             {
                 //change the path on your local computer 
-                string x = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Body\Library-Managment-System\libraryDB\LiveLibraryDB.mdf;Integrated Security=True;Connect Timeout=30";
+                string x = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\909\libraryDB\LiveLibraryDB.mdf"";Integrated Security=True;Connect Timeout=30";
                 con = new SqlConnection(x);
                 con.Open();
                 cmd = new SqlCommand("insert into users(firstName,lastName,homeAddress,phone,email,password,isAdmin)values(@firstName,@lastName,@homeAddress,@phone,@email,@password,@isAdmin);", con);
@@ -172,6 +172,21 @@ namespace Library_Managment_System
             {
                 textBox6.UseSystemPasswordChar = true;
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

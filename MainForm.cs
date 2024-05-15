@@ -46,9 +46,11 @@ namespace Library_Managment_System
 
         private void button1_Click(object sender, EventArgs e) //
         {
-            // logging out from the global logged user 
+            Login x = new Login();
+            this.Hide();
+            x.ShowDialog();
+            this.Close();
 
-        
         }
 
 
@@ -78,6 +80,15 @@ namespace Library_Managment_System
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_settings_Click_1(object sender, EventArgs e)
+        {
+        }
+
+        private void panel_main_Paint_1(object sender, PaintEventArgs e)
         {
 
         }

@@ -92,6 +92,7 @@
             this.btn_settings.Text = "Settings";
             this.btn_settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_settings.UseVisualStyleBackColor = true;
+            this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click_1);
             // 
             // btn_favorite
             // 
@@ -208,6 +209,7 @@
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(985, 606);
             this.panel_main.TabIndex = 6;
+            this.panel_main.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_main_Paint_1);
             // 
             // MainForm
             // 

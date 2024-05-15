@@ -90,5 +90,15 @@ namespace Library_Managment_System
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
+        private void Lbl_lgnToaccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
