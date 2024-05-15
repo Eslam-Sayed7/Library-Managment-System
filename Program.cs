@@ -7,7 +7,7 @@ namespace GlobalVariables
 {
     static class GlobalVariables
     {
-        public static int uid = 2;
+        public static int uid = -1;
     }
 }
 namespace Library_Managment_System
@@ -22,9 +22,8 @@ namespace Library_Managment_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Sign_up());
             //Application.Run(new Login());
-            //Application.Run(new Mybooks(GlobalVariables.GlobalVariables.uid));
+            Application.Run(new Sign_up());
         }
     }
 }

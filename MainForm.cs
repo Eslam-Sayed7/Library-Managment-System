@@ -13,18 +13,18 @@ using LiveLibraryDB;
 
 namespace Library_Managment_System
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         SqlConnection Con = new SqlConnection();
         SqlCommand Cmd = new SqlCommand();
         DBConnect Dbconect = new DBConnect();
 
-        public Form1()
+        public MainForm(int uid)
         {
-
+            /*label_user_name.Text = "user name : " + uid.ToString();*/
             InitializeComponent();
-            //Con = new SqlConnection(Dbconect.myConnection());
-            //Con.Open();
+            Con = new SqlConnection(Dbconect.myConnection());
+            Con.Open();
            // MessageBox.Show("Database is connected");
         }
 

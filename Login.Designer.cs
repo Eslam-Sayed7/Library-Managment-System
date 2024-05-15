@@ -38,8 +38,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Lbl_lgnToaccount = new System.Windows.Forms.Label();
             this.Loginbtn = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.userIdtxtbox = new System.Windows.Forms.TextBox();
+            this.PasswordtextBox = new System.Windows.Forms.TextBox();
+            this.Emailtxtbox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -123,8 +123,8 @@
             // 
             this.panel2.Controls.Add(this.Lbl_lgnToaccount);
             this.panel2.Controls.Add(this.Loginbtn);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.userIdtxtbox);
+            this.panel2.Controls.Add(this.PasswordtextBox);
+            this.panel2.Controls.Add(this.Emailtxtbox);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.panel3);
@@ -156,23 +156,24 @@
             this.Loginbtn.TabIndex = 3;
             this.Loginbtn.Text = "LOGIN";
             this.Loginbtn.UseVisualStyleBackColor = false;
+            this.Loginbtn.Click += new System.EventHandler(this.Loginbtn_Click);
             // 
-            // textBox2
+            // PasswordtextBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(48, 257);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(524, 40);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.PasswordtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordtextBox.Location = new System.Drawing.Point(48, 257);
+            this.PasswordtextBox.Name = "PasswordtextBox";
+            this.PasswordtextBox.Size = new System.Drawing.Size(524, 40);
+            this.PasswordtextBox.TabIndex = 1;
+            this.PasswordtextBox.UseSystemPasswordChar = true;
             // 
-            // userIdtxtbox
+            // Emailtxtbox
             // 
-            this.userIdtxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userIdtxtbox.Location = new System.Drawing.Point(48, 164);
-            this.userIdtxtbox.Name = "userIdtxtbox";
-            this.userIdtxtbox.Size = new System.Drawing.Size(524, 40);
-            this.userIdtxtbox.TabIndex = 1;
+            this.Emailtxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Emailtxtbox.Location = new System.Drawing.Point(48, 164);
+            this.Emailtxtbox.Name = "Emailtxtbox";
+            this.Emailtxtbox.Size = new System.Drawing.Size(524, 40);
+            this.Emailtxtbox.TabIndex = 1;
             // 
             // panel4
             // 
@@ -259,9 +260,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox userIdtxtbox;
+        private System.Windows.Forms.TextBox Emailtxtbox;
         private System.Windows.Forms.Button Loginbtn;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox PasswordtextBox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel3;

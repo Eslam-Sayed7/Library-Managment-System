@@ -80,6 +80,7 @@ namespace Library_Managment_System
             }
             return true;
         }
+
         //for Email Checking 
         private bool checkEmail(string email)
         {
@@ -126,7 +127,7 @@ namespace Library_Managment_System
             }
             if (k)
             {
-                con = new SqlConnection(@"Data Source=DESKTOP-6HEEMKE\SQLEXPRESS;Initial Catalog=LibraryDB;Integrated Security=True;");
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf"";Integrated Security=True;Connect Timeout=30;");
                 con.Open();
                 cmd = new SqlCommand("insert into users(firstName,lastName,homeAddress,phone,email,isAdmin)values(@firstName,@lastName,@homeAddress,@phone,@email,@isAdmin);", con);
                 cmd.Parameters.AddWithValue("@firstName", textBox1.Text);

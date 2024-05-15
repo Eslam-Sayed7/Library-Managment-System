@@ -21,10 +21,18 @@ namespace Library_Managment_System
         SqlDataReader dr;
         public Mybooks(int LogginID)
         {
-            InitializeComponent();
-            Con = new SqlConnection(Dbconect.myConnection());
-            LoadUserBooks(LogginID);
+            if (LogginID == -1)
+            {
+                MessageBox.Show("Please Login First", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                InitializeComponent();
+                Con = new SqlConnection(Dbconect.myConnection());
+                LoadUserBooks(LogginID);
+            }
         }
+
         public void LoadUserBooks(int logginID) // load user 
         {
             int i = 0;
