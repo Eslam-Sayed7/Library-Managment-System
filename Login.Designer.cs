@@ -66,6 +66,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(412, 561);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label3
             // 
@@ -144,6 +145,7 @@
             this.Lbl_lgnToaccount.Size = new System.Drawing.Size(242, 33);
             this.Lbl_lgnToaccount.TabIndex = 4;
             this.Lbl_lgnToaccount.Text = "Login to your account";
+            this.Lbl_lgnToaccount.Click += new System.EventHandler(this.Lbl_lgnToaccount_Click);
             // 
             // Loginbtn
             // 

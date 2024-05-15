@@ -68,6 +68,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(412, 560);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -77,6 +78,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(248, 266);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -261,7 +263,7 @@
             this.button2.TabIndex = 25;
             this.button2.Text = "Log_in";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // label1
             // 

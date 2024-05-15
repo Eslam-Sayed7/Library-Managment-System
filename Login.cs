@@ -81,11 +81,12 @@ namespace Library_Managment_System
                 if (isValid)
                 {
                     SetLogginID(GetUserIdFromCredentials(email, password));
-                    Emailtxtbox.Clear();
-                    PasswordtextBox.Clear();
+/*                    Emailtxtbox.Clear();*/
+ /*                   PasswordtextBox.Clear();*/
                     this.Hide();
                     MainForm mainForm = new MainForm(GlobalVariables.GlobalVariables.uid);
                     mainForm.Show();
+                    this.Close();
                 }
                 else
                 {
@@ -102,6 +103,16 @@ namespace Library_Managment_System
             string email = Emailtxtbox.Text;
             string password = PasswordtextBox.Text;
             LoginValidation(email, password);
+        }
+
+        private void Lbl_lgnToaccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

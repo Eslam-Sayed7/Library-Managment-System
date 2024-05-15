@@ -32,9 +32,6 @@ namespace Library_Managment_System
             // MessageBox.Show("Database is connected");
         }
 
-        ~MainForm()
-        {
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -53,18 +50,12 @@ namespace Library_Managment_System
 
         private void logout_Click(object sender, EventArgs e) //
         {
-            // logging out from the global logged user 
-
-        
-        }
-
-
-        private void btn_settings_Click(object sender, EventArgs e)
-        {
+            Login x = new Login();
+            this.Hide();
+            x.ShowDialog();
+            this.Close();
 
         }
-
-
         public void LoadLibraryBooks() // load available library books for a user to borrow 
         {
             int i = 0;
@@ -92,10 +83,14 @@ namespace Library_Managment_System
                 i++;
                 DgridvLibrarybooks.Rows.Add(i, dr["bookId"].ToString(), dr["title"].ToString(), dr["categoryName"].ToString(), dr["isbn"].ToString(), dr["publicationYear"].ToString());
             }
-
             dr.Close();
             Con.Close();
         }
 
+        private void btn_settings_Click_1(object sender, EventArgs e)
+        {
+            Setting mysettings = new Setting();
+            mysettings.Show();
+        }
     }
 }

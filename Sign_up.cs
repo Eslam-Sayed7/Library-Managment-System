@@ -146,7 +146,7 @@ namespace Library_Managment_System
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Congratulations You have been successfully registered :)");
-
+               
             }
             else
             {
@@ -154,14 +154,6 @@ namespace Library_Managment_System
             }
         }
         
-        private void button2_Click(object sender, EventArgs e) // already have an account --> go to login form
-        {
-            Login x = new Login(EmailSignupTextBox.Text , PasswordSignUpTxtBox.Text);
-            this.Hide();
-            x.ShowDialog();
-            this.Close();
-
-        }
      
         //Check Box
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -174,6 +166,30 @@ namespace Library_Managment_System
             {
                 PasswordSignUpTxtBox.UseSystemPasswordChar = true;
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Login x = new Login();
+            this.Hide();
+            x.ShowDialog();
+            this.Close();
+
         }
     }
 }
