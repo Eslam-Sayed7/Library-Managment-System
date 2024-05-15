@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,7 +49,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,8 +66,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(412, 692);
+            this.panel1.Size = new System.Drawing.Size(412, 560);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Library_Managment_System.Properties.Resources.learning__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(94, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(248, 266);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -109,7 +121,6 @@
             this.Lbl_lgnToaccount.Size = new System.Drawing.Size(259, 33);
             this.Lbl_lgnToaccount.TabIndex = 5;
             this.Lbl_lgnToaccount.Text = "Sign up a new Account";
-            this.Lbl_lgnToaccount.Click += new System.EventHandler(this.Lbl_lgnToaccount_Click);
             // 
             // label5
             // 
@@ -119,7 +130,6 @@
             this.label5.Size = new System.Drawing.Size(86, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "firstName";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBox1
             // 
@@ -128,7 +138,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(385, 40);
             this.textBox1.TabIndex = 9;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -146,12 +155,11 @@
             this.label6.Size = new System.Drawing.Size(84, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "lastName";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(442, 245);
+            this.label8.Location = new System.Drawing.Point(449, 245);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 20);
             this.label8.TabIndex = 13;
@@ -160,7 +168,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(442, 353);
+            this.label9.Location = new System.Drawing.Point(442, 383);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 20);
             this.label9.TabIndex = 14;
@@ -169,12 +177,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(442, 303);
+            this.label10.Location = new System.Drawing.Point(449, 297);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 20);
             this.label10.TabIndex = 15;
             this.label10.Text = "Email";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // textBox3
             // 
@@ -204,7 +211,7 @@
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(543, 283);
+            this.textBox5.Location = new System.Drawing.Point(543, 277);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(385, 40);
             this.textBox5.TabIndex = 19;
@@ -213,7 +220,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.LightSalmon;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(613, 393);
+            this.button1.Location = new System.Drawing.Point(629, 414);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 35);
             this.button1.TabIndex = 21;
@@ -225,12 +232,11 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(428, 448);
+            this.label11.Location = new System.Drawing.Point(420, 484);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(192, 20);
             this.label11.TabIndex = 22;
             this.label11.Text = "Already have an account?";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // comboBox1
             // 
@@ -239,18 +245,17 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.comboBox1.Location = new System.Drawing.Point(543, 345);
+            this.comboBox1.Location = new System.Drawing.Point(545, 380);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(102, 28);
             this.comboBox1.TabIndex = 24;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.LightGray;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(626, 443);
+            this.button2.Location = new System.Drawing.Point(650, 479);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(101, 30);
             this.button2.TabIndex = 25;
@@ -258,21 +263,43 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // pictureBox1
+            // label1
             // 
-            this.pictureBox1.Image = global::Library_Managment_System.Properties.Resources.learning__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(94, 42);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(248, 266);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(435, 343);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 20);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Password";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(543, 326);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(290, 40);
+            this.textBox6.TabIndex = 27;
+            this.textBox6.UseSystemPasswordChar = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(839, 339);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(72, 24);
+            this.checkBox2.TabIndex = 29;
+            this.checkBox2.Text = "Show";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // Sign_up
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 692);
+            this.ClientSize = new System.Drawing.Size(976, 560);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label11);
@@ -325,5 +352,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

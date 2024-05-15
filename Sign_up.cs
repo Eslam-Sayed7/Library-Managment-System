@@ -26,40 +26,7 @@ namespace Library_Managment_System
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void Lbl_lgnToaccount_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
         private bool isDigit(char digit)
         {
             if (digit < '0' || digit > '9')
@@ -120,6 +87,11 @@ namespace Library_Managment_System
                 k = false;
 
             }
+            if (string.IsNullOrEmpty(textBox6.Text.Trim()))
+            {
+                MessageBox.Show("The Password is Empty");
+                k = false;
+            }
             if (string.IsNullOrEmpty(comboBox1.Text.Trim()))
             {
                 MessageBox.Show("This field is required");
@@ -127,9 +99,11 @@ namespace Library_Managment_System
             }
             if (k)
             {
-                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf"";Integrated Security=True;Connect Timeout=30;");
+                //change the path on your local computer 
+                string x = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Body\Library-Managment-System\libraryDB\LiveLibraryDB.mdf;Integrated Security=True;Connect Timeout=30";
+                con = new SqlConnection(x);
                 con.Open();
-                cmd = new SqlCommand("insert into users(firstName,lastName,homeAddress,phone,email,isAdmin)values(@firstName,@lastName,@homeAddress,@phone,@email,@isAdmin);", con);
+                cmd = new SqlCommand("insert into users(firstName,lastName,homeAddress,phone,email,password,isAdmin)values(@firstName,@lastName,@homeAddress,@phone,@email,@password,@isAdmin);", con);
                 cmd.Parameters.AddWithValue("@firstName", textBox1.Text);
                 cmd.Parameters.AddWithValue("@lastName", textBox2.Text);
                 cmd.Parameters.AddWithValue("@homeAddress", textBox3.Text);
@@ -158,6 +132,7 @@ namespace Library_Managment_System
                 }
                 //end of the check
                 /*==========================================================================================*/
+                cmd.Parameters.AddWithValue("@password", textBox6.Text);
                 if (comboBox1.Text == "Yes")
                 {
                     cmd.Parameters.AddWithValue("@isAdmin", 1);
@@ -177,25 +152,6 @@ namespace Library_Managment_System
                 return;
             }
         }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Login x = new Login();
@@ -204,15 +160,18 @@ namespace Library_Managment_System
             this.Close();
 
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+     
+        //Check Box
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
+            if (checkBox2.Checked)
+            {
+                textBox6.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBox6.UseSystemPasswordChar = true;
+            }
         }
     }
 }
