@@ -68,7 +68,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(412, 560);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -78,7 +77,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(248, 266);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -323,7 +321,6 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Sign_up";
             this.Text = "Sign_up";
-            this.Load += new System.EventHandler(this.Sign_up_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -20,35 +20,19 @@ namespace Library_Managment_System
         SqlCommand Cmd = new SqlCommand();
         DBConnect Dbconect = new DBConnect();
         SqlDataReader dr;
-
-
         public MainForm(int uid)
         {
             /*label_user_name.Text = "user name : " + uid.ToString();*/
             InitializeComponent();
             Con = new SqlConnection(Dbconect.myConnection());
             LoadLibraryBooks();
-            /*Con.Open();*/
-            // MessageBox.Show("Database is connected");
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_My_books_Click(object sender, EventArgs e)
         {
             Mybooks mybooks = new Mybooks(GlobalVariables.GlobalVariables.uid);
             mybooks.Show();
         }
-
-        private void logout_Click(object sender, EventArgs e) //
+        private void logout_Click(object sender, EventArgs e)
         {
             Login x = new Login();
             this.Hide();
@@ -61,32 +45,28 @@ namespace Library_Managment_System
             int i = 0;
             DgridvLibrarybooks.Rows.Clear();
             Con.Open();
-
             // Create the SqlCommand object with the SQL query and connection
             Cmd = new SqlCommand(
-            "SELECT bk.bookId, bk.title, cat.name AS categoryName, bk.isbn, bk.publicationYear " +
-            "FROM Books AS bk " +
-            "JOIN category AS cat ON cat.categoryId = bk.categoryId " +
-            "LEFT JOIN borrow AS bw ON bk.bookId = bw.bookId"
+                "SELECT bk.bookId, bk.title, cat.name AS categoryName, bk.isbn, bk.publicationYear, au.name AS authorName " +
+                "FROM books AS bk " +
+                "JOIN category AS cat ON cat.categoryId = bk.categoryId " +
+                "JOIN authors AS au ON au.authorId = bk.authorId " +
+                "LEFT OUTER JOIN borrow AS bw ON bk.bookId = bw.bookId WHERE bw.bookId IS NULL"
             , Con);
-
-
 
             // Add parameters to the SqlCommand object
             Cmd.Parameters.AddWithValue("@LogginID", GlobalVariables.GlobalVariables.uid);
 
-            // Execute the query
-            dr = Cmd.ExecuteReader();
+            dr = Cmd.ExecuteReader(); // Execute the query
 
             while (dr.Read())
             {
                 i++;
-                DgridvLibrarybooks.Rows.Add(i, dr["bookId"].ToString(), dr["title"].ToString(), dr["categoryName"].ToString(), dr["isbn"].ToString(), dr["publicationYear"].ToString());
+                DgridvLibrarybooks.Rows.Add(i, dr["bookId"].ToString(), dr["title"].ToString(), dr["categoryName"].ToString(), dr["isbn"].ToString(), dr["publicationYear"].ToString() , dr["authorName"].ToString());
             }
             dr.Close();
             Con.Close();
         }
-
         private void btn_settings_Click_1(object sender, EventArgs e)
         {
             Setting mysettings = new Setting();

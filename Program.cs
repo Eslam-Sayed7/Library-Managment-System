@@ -22,8 +22,8 @@ namespace Library_Managment_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            /*Application.Run(new Login());*/
-            Application.Run(new Sign_up());
+            Application.Run(new Login());
+            /*Application.Run(new Sign_up());*/
             //Application.Run(new Setting());
         }
     }

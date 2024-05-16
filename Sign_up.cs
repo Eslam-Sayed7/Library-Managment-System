@@ -20,13 +20,6 @@ namespace Library_Managment_System
         {
             InitializeComponent();
         }
-
-        private void Sign_up_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         private bool isDigit(char digit)
         {
             if (digit < '0' || digit > '9')
@@ -47,7 +40,6 @@ namespace Library_Managment_System
             }
             return true;
         }
-
         //for Email Checking 
         private bool checkEmail(string email)
         {
@@ -153,8 +145,6 @@ namespace Library_Managment_System
                 return;
             }
         }
-        
-     
         //Check Box
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
@@ -167,22 +157,6 @@ namespace Library_Managment_System
                 PasswordSignUpTxtBox.UseSystemPasswordChar = true;
             }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
             Login x = new Login();

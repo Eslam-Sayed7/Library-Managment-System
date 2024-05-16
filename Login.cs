@@ -32,10 +32,6 @@ namespace Library_Managment_System
         {
             GlobalVariables.GlobalVariables.uid = LogginID;
         }
-        public void Login_Load(object sender, EventArgs e) // need to be deleted 
-        {
-
-        }
         private int GetUserIdFromCredentials(string email, string password)
         {
             if (email == null || password == null) { return -1; }
@@ -81,12 +77,9 @@ namespace Library_Managment_System
                 if (isValid)
                 {
                     SetLogginID(GetUserIdFromCredentials(email, password));
-/*                    Emailtxtbox.Clear();*/
- /*                   PasswordtextBox.Clear();*/
                     this.Hide();
                     MainForm mainForm = new MainForm(GlobalVariables.GlobalVariables.uid);
                     mainForm.Show();
-                    this.Close();
                 }
                 else
                 {
@@ -103,11 +96,6 @@ namespace Library_Managment_System
             string email = Emailtxtbox.Text;
             string password = PasswordtextBox.Text;
             LoginValidation(email, password);
-        }
-
-        private void Lbl_lgnToaccount_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

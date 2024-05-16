@@ -145,7 +145,6 @@
             this.Lbl_lgnToaccount.Size = new System.Drawing.Size(242, 33);
             this.Lbl_lgnToaccount.TabIndex = 4;
             this.Lbl_lgnToaccount.Text = "Login to your account";
-            this.Lbl_lgnToaccount.Click += new System.EventHandler(this.Lbl_lgnToaccount_Click);
             // 
             // Loginbtn
             // 
@@ -236,7 +235,6 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
