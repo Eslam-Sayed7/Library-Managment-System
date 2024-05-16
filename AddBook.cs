@@ -15,7 +15,10 @@ namespace Library_Managment_System
     public partial class AddBook : Form
     {
         SqlConnection con;
+        SqlConnection con3;
         SqlCommand cmd;
+        string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = F:\Body\Library-Managment-System\libraryDB\LiveLibraryDB.mdf; Integrated Security = True; Connect Timeout = 30";
+
         public AddBook()
         {
             InitializeComponent();
@@ -36,6 +39,7 @@ namespace Library_Managment_System
             }
             return true;
         }
+      
         private void button1_Click(object sender, EventArgs e)
         {
             bool k = true;
@@ -96,34 +100,42 @@ namespace Library_Managment_System
 
             if (k)
             {
-                string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = F:\Body\Library-Managment-System\libraryDB\LiveLibraryDB.mdf; Integrated Security = True; Connect Timeout = 30";
                 con = new SqlConnection(connectionString);
                 SqlConnection con2 = new SqlConnection(connectionString);
                 con.Open();
                 con2.Open();
                 cmd = new SqlCommand("insert into books(bookId,title,isbn,categoryId,publicationYear,availability,description,edition,authorId)" +
                     "values(@bookId,@title,@isbn,@categoryId,@publicationYear,@availability,@description,@edition,@authorId);", con);
-
+                if (isNum(textBox1.Text)) { 
                 SqlCommand cmd2 = new SqlCommand("select bookId from books " +
                     "where bookId=" + int.Parse(textBox1.Text), con2);
                 // Check the BookId in the database
-                cmd2.Parameters.AddWithValue("@bookId", int.Parse(textBox1.Text));
-                SqlDataReader reader = cmd2.ExecuteReader();
+               
+                    cmd2.Parameters.AddWithValue("@bookId", int.Parse(textBox1.Text));
+                    SqlDataReader reader = cmd2.ExecuteReader();
 
-                if (reader.HasRows)
-                {
-                    reader.Read();
-                    int retrievedBookId = reader.GetInt32(0);
-                    if (retrievedBookId == int.Parse(textBox1.Text))
+                    if (reader.HasRows)
                     {
-                        MessageBox.Show("You Entered an existing id  :\\");
-                        return;
+                        reader.Read();
+                        int retrievedBookId = reader.GetInt32(0);
+                        if (retrievedBookId == int.Parse(textBox1.Text))
+                        {
+                            MessageBox.Show("You Entered an existing id  :\\");
+                            return;
+                        }
+
                     }
+                    reader.Close();
+                    con2.Close();
+                    cmd.Parameters.AddWithValue("@bookId", int.Parse(textBox1.Text));
+                }
+                else
+                {
+                    MessageBox.Show("Enter a book ID");
+                    return;
 
                 }
-                reader.Close();
-                con2.Close();
-                cmd.Parameters.AddWithValue("@bookId", int.Parse(textBox1.Text));
+               
                 //=============================================================
 
                 cmd.Parameters.AddWithValue("@title", textBox2.Text);
@@ -173,6 +185,49 @@ namespace Library_Managment_System
 
         private void button2_Click(object sender, EventArgs e)
         {
+            AdminHome x = new AdminHome();
+            this.Hide();
+            x.ShowDialog();
+            this.Close();
+        }
+
+        private void AddBook_Load(object sender, EventArgs e)
+        {
+            cc();
+            cc2();
+        }
+        public void cc()
+        {
+            textBox4.Items.Clear();
+            con3 = new SqlConnection(connectionString);
+            con3.Open();
+            SqlCommand tmp = new SqlCommand("select categoryId from category", con3);
+            tmp.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(tmp);
+            da.Fill(dt);
+            foreach(DataRow dr in dt.Rows)
+            {
+                textBox4.Items.Add(dr["categoryId"].ToString());
+            }
+            con3.Close();
+
+        }
+        public void cc2()
+        {
+            textBox8.Items.Clear();
+            con3 = new SqlConnection(connectionString);
+            con3.Open();
+            SqlCommand tmp = new SqlCommand("select authorId from authors", con3);
+            tmp.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(tmp);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                textBox8.Items.Add(dr["authorId"].ToString());
+            }
+            con3.Close();
 
         }
     }
