@@ -59,6 +59,7 @@
             this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicationYR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel_sidebar.SuspendLayout();
             this.panel_logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -183,7 +184,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(199, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(985, 55);
+            this.panel1.Size = new System.Drawing.Size(861, 55);
             this.panel1.TabIndex = 5;
             // 
             // panel_main
@@ -193,7 +194,7 @@
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(199, 55);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(985, 606);
+            this.panel_main.Size = new System.Drawing.Size(861, 606);
             this.panel_main.TabIndex = 6;
             // 
             // DgridvLibrarybooks
@@ -221,7 +222,8 @@
             this.category,
             this.isbn,
             this.publicationYR,
-            this.author});
+            this.author,
+            this.Edit});
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,7 +249,7 @@
             this.DgridvLibrarybooks.RowHeadersWidth = 100;
             this.DgridvLibrarybooks.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DgridvLibrarybooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgridvLibrarybooks.Size = new System.Drawing.Size(985, 606);
+            this.DgridvLibrarybooks.Size = new System.Drawing.Size(861, 606);
             this.DgridvLibrarybooks.StandardTab = true;
             this.DgridvLibrarybooks.TabIndex = 8;
             this.DgridvLibrarybooks.TabStop = false;
@@ -337,12 +339,19 @@
             this.author.HeaderText = "Author";
             this.author.Name = "author";
             // 
+            // Edit
+            // 
+            this.Edit.FillWeight = 50F;
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 50;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(1060, 661);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_windowName);
@@ -385,6 +394,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
         private System.Windows.Forms.DataGridViewTextBoxColumn publicationYR;
         private System.Windows.Forms.DataGridViewTextBoxColumn author;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
     }
 }
 
