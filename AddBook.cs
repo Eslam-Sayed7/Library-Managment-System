@@ -96,7 +96,7 @@ namespace Library_Managment_System
 
             if (k)
             {
-                string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = F:\Body\Library-Managment-System\libraryDB\LiveLibraryDB.mdf; Integrated Security = True; Connect Timeout = 30";
+                string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =D:\CS\2 - year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf; Integrated Security = False; Connect Timeout = 30";
                 con = new SqlConnection(connectionString);
                 SqlConnection con2 = new SqlConnection(connectionString);
                 con.Open();

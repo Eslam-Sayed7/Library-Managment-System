@@ -10,79 +10,91 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LiveLibraryDB;
+using Library_Managment_System;
 
 namespace Library_Managment_System
 {
    
     public partial class AdminHome : Form
     {
-        SqlCommand cmd;
-        SqlConnection con;
+        SqlConnection AdminHomeConnection = new SqlConnection();
+        SqlCommand Cmd = new SqlCommand();
+        DBConnect Dbconnect = new DBConnect();
         SqlDataReader dr;
-
         public AdminHome()
         {
             InitializeComponent();
+            AdminHomeConnection = new SqlConnection(Dbconnect.myConnection());
+            LoadLibraryBooks();
         }
         public void LoadLibraryBooks() // load available library books for a user to borrow 
         {
-            string conncetion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Body\Library-Managment-System\libraryDB\LiveLibraryDB.mdf;Integrated Security=True;Connect Timeout=30;";
-            con =new SqlConnection(conncetion);
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf;Integrated Security=False;Connect Timeout=30";
+            AdminHomeConnection = new SqlConnection(connectionString);
             int i = 0;
-            DgridvLibrarybooks.Rows.Clear();
-            con.Open();
+            AdminDgridvLibrarybooks.Rows.Clear();
+            AdminHomeConnection.Open();
             // Create the SqlCommand object with the SQL query and connection
-            cmd = new SqlCommand(
+            Cmd = new SqlCommand(
                 "SELECT bk.bookId, bk.title, cat.name AS categoryName, bk.isbn, bk.publicationYear, au.name AS authorName " +
                 "FROM books AS bk " +
                 "JOIN category AS cat ON cat.categoryId = bk.categoryId " +
-                "JOIN authors AS au ON au.authorId = bk.authorId " +
-                "LEFT OUTER JOIN borrow AS bw ON bk.bookId = bw.bookId WHERE bw.bookId IS NULL"
-            , con);
+                "JOIN authors AS au ON au.authorId = bk.authorId " 
+            , AdminHomeConnection);
 
             // Add parameters to the SqlCommand object
-            cmd.Parameters.AddWithValue("@LogginID", GlobalVariables.GlobalVariables.uid);
+            //cmd.Parameters.AddWithValue("@LogginID", GlobalVariables.GlobalVariables.uid);
 
-            dr = cmd.ExecuteReader(); // Execute the query
+            dr = Cmd.ExecuteReader(); // Execute the query
 
             while (dr.Read())
             {
                 i++;
-                DgridvLibrarybooks.Rows.Add(i, dr["bookId"].ToString(), dr["title"].ToString(), dr["categoryName"].ToString(), dr["isbn"].ToString(), dr["publicationYear"].ToString(), dr["authorName"].ToString());
+                AdminDgridvLibrarybooks.Rows.Add(i, dr["bookId"].ToString(), dr["title"].ToString(), dr["categoryName"].ToString(), dr["isbn"].ToString(), dr["publicationYear"].ToString(), dr["authorName"].ToString());
             }
             dr.Close();
-            con.Close();
+            AdminHomeConnection.Close();
         }
-
-        private void btn_My_books_Click(object sender, EventArgs e)
+        private void DelteBook_Click(object sender, EventArgs e)
         {
             DeleteBook x = new DeleteBook();
             this.Hide();
             x.ShowDialog();
             this.Close();
         }
-
-
-        private void button2_Click(object sender, EventArgs e)
+        private void AddBook_Click(object sender, EventArgs e)
         {
             AddBook x = new AddBook();
             this.Hide();
             x.ShowDialog();
             this.Close();
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void Logout_admin_Click(object sender, EventArgs e)
         {
             Login x = new Login();
             this.Hide();
             x.ShowDialog();
             this.Close();
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void Edit_info_Click(object sender, EventArgs e)
         {
             Setting mysettings = new Setting();
             mysettings.Show();
+        }
+        private void AdminDgridvLibrarybooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && AdminDgridvLibrarybooks.Columns[e.ColumnIndex].Name == "Update")
+            {
+                UpdateBook updatebook = new UpdateBook();
+                updatebook.Show();
+                int book_ID = int.Parse(AdminDgridvLibrarybooks.Rows[e.RowIndex].Cells[1].Value.ToString());
+                updatebook.LoadBookInfo(book_ID);
+            }
+        }
+        private void Update_book_admin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

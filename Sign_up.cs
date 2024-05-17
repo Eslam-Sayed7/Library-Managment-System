@@ -93,7 +93,7 @@ namespace Library_Managment_System
             {
                 //change the path on your local computer 
 
-                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Body\Library-Managment-System\libraryDB\LiveLibraryDB.mdf;Integrated Security=True;Connect Timeout=30;";
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf"";Integrated Security=False;Connect Timeout=30;";
                 con = new SqlConnection(connectionString);
                 con.Open();
                 cmd = new SqlCommand("insert into users(firstName,lastName,homeAddress,phone,email,password,isAdmin)values(@firstName,@lastName,@homeAddress,@phone,@email,@password,@isAdmin);", con);

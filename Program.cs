@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace GlobalVariables
 {
     static class GlobalVariables
     {
         public static int uid = -1;
+        public static bool IsAdmin;
     }
 }
 namespace Library_Managment_System

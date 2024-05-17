@@ -17,7 +17,6 @@ namespace Library_Managment_System
 {
     public partial class Login : Form
     {
-        private int LogginID;
         public Login()
         {
             InitializeComponent();
@@ -31,6 +30,10 @@ namespace Library_Managment_System
         private void SetLogginID(int LogginID)
         {
             GlobalVariables.GlobalVariables.uid = LogginID;
+        }
+        private void SetAdmin(bool _isAdmin_)
+        {
+            GlobalVariables.GlobalVariables.IsAdmin = _isAdmin_;
         }
         private int GetUserIdFromCredentials(string email, string password)
         {
@@ -47,6 +50,25 @@ namespace Library_Managment_System
 
                     connection.Open();
                     return (Convert.ToInt32(command.ExecuteScalar()));
+                }
+            }
+        }
+        private bool IsUserAdmin(string email, string password)
+        {
+            if (email == null || password == null) { return false; }
+
+            string query = "SELECT 1 FROM users WHERE Email = @Email AND Password = @Password AND isAdmin = 1";
+
+            DBConnect Dbconect = new DBConnect();
+            using (SqlConnection connection = new SqlConnection(Dbconect.myConnection()))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@Password", password);
+
+                    connection.Open();
+                    return command.ExecuteScalar() != null;
                 }
             }
         }
@@ -76,10 +98,20 @@ namespace Library_Managment_System
                 bool isValid = IsUserExists(email, password);
                 if (isValid)
                 {
-                    SetLogginID(GetUserIdFromCredentials(email, password));
-                    this.Hide();
-                    MainForm mainForm = new MainForm(GlobalVariables.GlobalVariables.uid);
-                    mainForm.Show();
+                    SetLogginID(GetUserIdFromCredentials(email, password)); // set global login user
+                    SetAdmin(IsUserAdmin(email, password));                 // set global user to admin if true
+                    if (!GlobalVariables.GlobalVariables.IsAdmin)           // if not admin
+                    {
+                        this.Hide();
+                        MainForm mainForm = new MainForm();
+                        mainForm.Show();
+                    }
+                    else // if admin
+                    {
+                        this.Hide();
+                        AdminHome adminHome = new AdminHome();
+                        adminHome.Show();
+                    }
                 }
                 else
                 {
@@ -96,11 +128,6 @@ namespace Library_Managment_System
             string email = Emailtxtbox.Text;
             string password = PasswordtextBox.Text;
             LoginValidation(email, password);
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

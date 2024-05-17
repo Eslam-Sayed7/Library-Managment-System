@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CancelUpdate = new System.Windows.Forms.Button();
+            this.Updatebtn = new System.Windows.Forms.Button();
+            this.AvailableBox1 = new System.Windows.Forms.ComboBox();
+            this.updateAuthor = new System.Windows.Forms.TextBox();
+            this.updateEdition = new System.Windows.Forms.TextBox();
+            this.updateDescBox = new System.Windows.Forms.TextBox();
+            this.UpdateBookpubYr = new System.Windows.Forms.TextBox();
+            this.UpdateBookCatID = new System.Windows.Forms.TextBox();
+            this.updateBookISBN = new System.Windows.Forms.TextBox();
+            this.updateBookTitle = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -46,97 +46,99 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.updateBookId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button2
+            // CancelUpdate
             // 
-            this.button2.Location = new System.Drawing.Point(442, 167);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 37);
-            this.button2.TabIndex = 50;
-            this.button2.Text = "Return to home page";
-            this.button2.UseVisualStyleBackColor = true;
+            this.CancelUpdate.Location = new System.Drawing.Point(442, 167);
+            this.CancelUpdate.Name = "CancelUpdate";
+            this.CancelUpdate.Size = new System.Drawing.Size(75, 37);
+            this.CancelUpdate.TabIndex = 50;
+            this.CancelUpdate.Text = "Cancel";
+            this.CancelUpdate.UseVisualStyleBackColor = true;
+            this.CancelUpdate.Click += new System.EventHandler(this.CancelUpdate_Click);
             // 
-            // button1
+            // Updatebtn
             // 
-            this.button1.Location = new System.Drawing.Point(442, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 37);
-            this.button1.TabIndex = 49;
-            this.button1.Text = "AddBook";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Updatebtn.Location = new System.Drawing.Point(442, 82);
+            this.Updatebtn.Name = "Updatebtn";
+            this.Updatebtn.Size = new System.Drawing.Size(75, 37);
+            this.Updatebtn.TabIndex = 49;
+            this.Updatebtn.Text = "Update";
+            this.Updatebtn.UseVisualStyleBackColor = true;
+            this.Updatebtn.Click += new System.EventHandler(this.Update_btn_click);
             // 
-            // comboBox1
+            // AvailableBox1
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.AvailableBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AvailableBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AvailableBox1.FormattingEnabled = true;
+            this.AvailableBox1.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.comboBox1.Location = new System.Drawing.Point(123, 290);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 48;
+            this.AvailableBox1.Location = new System.Drawing.Point(142, 290);
+            this.AvailableBox1.Name = "AvailableBox1";
+            this.AvailableBox1.Size = new System.Drawing.Size(121, 26);
+            this.AvailableBox1.TabIndex = 48;
             // 
-            // textBox8
+            // updateAuthor
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(123, 408);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(182, 35);
-            this.textBox8.TabIndex = 47;
+            this.updateAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateAuthor.Location = new System.Drawing.Point(142, 408);
+            this.updateAuthor.Name = "updateAuthor";
+            this.updateAuthor.Size = new System.Drawing.Size(182, 35);
+            this.updateAuthor.TabIndex = 47;
             // 
-            // textBox7
+            // updateEdition
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(123, 367);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(250, 35);
-            this.textBox7.TabIndex = 46;
+            this.updateEdition.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateEdition.Location = new System.Drawing.Point(142, 367);
+            this.updateEdition.Name = "updateEdition";
+            this.updateEdition.Size = new System.Drawing.Size(250, 35);
+            this.updateEdition.TabIndex = 46;
             // 
-            // textBox6
+            // updateDescBox
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(123, 326);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(250, 35);
-            this.textBox6.TabIndex = 45;
+            this.updateDescBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateDescBox.Location = new System.Drawing.Point(142, 326);
+            this.updateDescBox.Name = "updateDescBox";
+            this.updateDescBox.Size = new System.Drawing.Size(250, 35);
+            this.updateDescBox.TabIndex = 45;
             // 
-            // textBox5
+            // UpdateBookpubYr
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(121, 241);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(250, 35);
-            this.textBox5.TabIndex = 44;
+            this.UpdateBookpubYr.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBookpubYr.Location = new System.Drawing.Point(140, 241);
+            this.UpdateBookpubYr.Name = "UpdateBookpubYr";
+            this.UpdateBookpubYr.Size = new System.Drawing.Size(250, 35);
+            this.UpdateBookpubYr.TabIndex = 44;
             // 
-            // textBox4
+            // UpdateBookCatID
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(123, 197);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(250, 35);
-            this.textBox4.TabIndex = 43;
+            this.UpdateBookCatID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBookCatID.Location = new System.Drawing.Point(142, 197);
+            this.UpdateBookCatID.Name = "UpdateBookCatID";
+            this.UpdateBookCatID.Size = new System.Drawing.Size(250, 35);
+            this.UpdateBookCatID.TabIndex = 43;
             // 
-            // textBox3
+            // updateBookISBN
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(122, 153);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 35);
-            this.textBox3.TabIndex = 42;
+            this.updateBookISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBookISBN.Location = new System.Drawing.Point(141, 153);
+            this.updateBookISBN.Name = "updateBookISBN";
+            this.updateBookISBN.Size = new System.Drawing.Size(250, 35);
+            this.updateBookISBN.TabIndex = 42;
             // 
-            // textBox2
+            // updateBookTitle
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(121, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 35);
-            this.textBox2.TabIndex = 41;
+            this.updateBookTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBookTitle.Location = new System.Drawing.Point(140, 112);
+            this.updateBookTitle.Name = "updateBookTitle";
+            this.updateBookTitle.Size = new System.Drawing.Size(250, 35);
+            this.updateBookTitle.TabIndex = 41;
             // 
             // label10
             // 
@@ -218,13 +220,13 @@
             this.label3.TabIndex = 33;
             this.label3.Text = "Title";
             // 
-            // textBox1
+            // updateBookId
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(122, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 35);
-            this.textBox1.TabIndex = 32;
+            this.updateBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateBookId.Location = new System.Drawing.Point(141, 71);
+            this.updateBookId.Name = "updateBookId";
+            this.updateBookId.Size = new System.Drawing.Size(182, 35);
+            this.updateBookId.TabIndex = 32;
             // 
             // label1
             // 
@@ -242,9 +244,9 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(12, 18);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(163, 31);
+            this.label11.Size = new System.Drawing.Size(182, 31);
             this.label11.TabIndex = 30;
-            this.label11.Text = "Add a Book";
+            this.label11.Text = "Update Book";
             // 
             // UpdateBook
             // 
@@ -252,16 +254,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(579, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.CancelUpdate);
+            this.Controls.Add(this.Updatebtn);
+            this.Controls.Add(this.AvailableBox1);
+            this.Controls.Add(this.updateAuthor);
+            this.Controls.Add(this.updateEdition);
+            this.Controls.Add(this.updateDescBox);
+            this.Controls.Add(this.UpdateBookpubYr);
+            this.Controls.Add(this.UpdateBookCatID);
+            this.Controls.Add(this.updateBookISBN);
+            this.Controls.Add(this.updateBookTitle);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -270,7 +272,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.updateBookId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
             this.Name = "UpdateBook";
@@ -282,16 +284,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button CancelUpdate;
+        private System.Windows.Forms.Button Updatebtn;
+        private System.Windows.Forms.ComboBox AvailableBox1;
+        private System.Windows.Forms.TextBox updateAuthor;
+        private System.Windows.Forms.TextBox updateEdition;
+        private System.Windows.Forms.TextBox updateDescBox;
+        private System.Windows.Forms.TextBox UpdateBookpubYr;
+        private System.Windows.Forms.TextBox UpdateBookCatID;
+        private System.Windows.Forms.TextBox updateBookISBN;
+        private System.Windows.Forms.TextBox updateBookTitle;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -300,7 +302,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox updateBookId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
     }

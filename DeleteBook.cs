@@ -37,7 +37,7 @@ namespace Library_Managment_System
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string conncetion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Body\Library-Managment-System\libraryDB\LiveLibraryDB.mdf;Integrated Security=True;Connect Timeout=30;";
+            string conncetion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf;Integrated Security=False;Connect Timeout=30;";
             SqlConnection con=new SqlConnection(conncetion);
             SqlDataAdapter adapter = new SqlDataAdapter();
             if (isDigit(textBox1.Text))
@@ -56,9 +56,6 @@ namespace Library_Managment_System
                 MessageBox.Show("not a valid ID");
                 return;
             }
-           
-            
-
         }
 
         private void button2_Click(object sender, EventArgs e)

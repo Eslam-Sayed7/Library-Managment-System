@@ -46,7 +46,7 @@ namespace Library_Managment_System
                     reader.Close();
                 }
             }
-        }
+        }   
 
         private void Setting_Load(object sender, EventArgs e)
         {
@@ -112,7 +112,7 @@ namespace Library_Managment_System
                 }
                 catch (Exception ex)
                 {
-                    //  MessageBox.Show("Error updating record: " + ex.Message);
+                    MessageBox.Show("Error updating record: " + ex.Message);
                 }
             }
             else

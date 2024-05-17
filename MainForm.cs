@@ -20,7 +20,7 @@ namespace Library_Managment_System
         SqlCommand Cmd = new SqlCommand();
         DBConnect Dbconect = new DBConnect();
         SqlDataReader dr;
-        public MainForm(int uid)
+        public MainForm()
         {
             /*label_user_name.Text = "user name : " + uid.ToString();*/
             InitializeComponent();
