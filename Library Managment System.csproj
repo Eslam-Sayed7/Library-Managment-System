@@ -65,81 +65,90 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBook.cs">
+    <Compile Include="BookActions\AddBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddBook.Designer.cs">
+    <Compile Include="BookActions\AddBook.Designer.cs">
       <DependentUpon>AddBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminHome.cs">
+    <Compile Include="User and Admin\AdminHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminHome.Designer.cs">
+    <Compile Include="User and Admin\AdminHome.Designer.cs">
       <DependentUpon>AdminHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBConnect.cs" />
-    <Compile Include="DeleteBook.cs">
+    <Compile Include="libraryDB\DBConnect.cs" />
+    <Compile Include="BookActions\DeleteBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteBook.Designer.cs">
+    <Compile Include="BookActions\DeleteBook.Designer.cs">
       <DependentUpon>DeleteBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="User and Admin\DeleteUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="User and Admin\DeleteUser.Designer.cs">
+      <DependentUpon>DeleteUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User and Admin\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User and Admin\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="User and Admin\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="User and Admin\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mybooks.cs">
+    <Compile Include="User and Admin\Mybooks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mybooks.Designer.cs">
+    <Compile Include="User and Admin\Mybooks.Designer.cs">
       <DependentUpon>Mybooks.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Setting.cs">
+    <Compile Include="User and Admin\Setting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setting.Designer.cs">
+    <Compile Include="User and Admin\Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sign_up.cs">
+    <Compile Include="User and Admin\Sign_up.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sign_up.Designer.cs">
+    <Compile Include="User and Admin\Sign_up.Designer.cs">
       <DependentUpon>Sign_up.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateBook.cs">
+    <Compile Include="BookActions\UpdateBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateBook.Designer.cs">
+    <Compile Include="BookActions\UpdateBook.Designer.cs">
       <DependentUpon>UpdateBook.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddBook.resx">
+    <EmbeddedResource Include="BookActions\AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminHome.resx">
+    <EmbeddedResource Include="User and Admin\AdminHome.resx">
       <DependentUpon>AdminHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteBook.resx">
+    <EmbeddedResource Include="BookActions\DeleteBook.resx">
       <DependentUpon>DeleteBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="User and Admin\DeleteUser.resx">
+      <DependentUpon>DeleteUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User and Admin\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="User and Admin\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mybooks.resx">
+    <EmbeddedResource Include="User and Admin\Mybooks.resx">
       <DependentUpon>Mybooks.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -153,13 +162,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Setting.resx">
+    <EmbeddedResource Include="User and Admin\Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sign_up.resx">
+    <EmbeddedResource Include="User and Admin\Sign_up.resx">
       <DependentUpon>Sign_up.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateBook.resx">
+    <EmbeddedResource Include="BookActions\UpdateBook.resx">
       <DependentUpon>UpdateBook.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -199,5 +208,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
