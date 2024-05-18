@@ -43,6 +43,7 @@
             this.backtohome.TabIndex = 17;
             this.backtohome.Text = "Back to HomePage";
             this.backtohome.UseVisualStyleBackColor = true;
+            this.backtohome.Click += new System.EventHandler(this.backtohome_Click);
             // 
             // button_deleteuserid
             // 

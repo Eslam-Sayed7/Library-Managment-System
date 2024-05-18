@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using LiveLibraryDB;
 using Library_Managment_System;
 using Library_Managment_System.User_and_Admin;
+using Library_Managment_System.BookActions;
 
 namespace Library_Managment_System
 {
@@ -53,33 +54,20 @@ namespace Library_Managment_System
             dr.Close();
             AdminHomeConnection.Close();
         }
-        private void DelteBook_Click(object sender, EventArgs e)
-        {
-            DeleteBook x = new DeleteBook();
-            this.Hide();
-            x.ShowDialog();
-            this.Close();
-        }
         private void AddBook_Click(object sender, EventArgs e)
         {
-            AddBook x = new AddBook();
+            AddBook addbookform = new AddBook();
             this.Hide();
-            x.ShowDialog();
+            addbookform.ShowDialog();
             this.Close();
         }
-        private void Logout_admin_Click(object sender, EventArgs e)
-        {
-            Login x = new Login();
-            this.Hide();
-            x.ShowDialog();
-            this.Close();
-        }
+        
         private void Edit_info_Click(object sender, EventArgs e)
         {
             Setting mysettings = new Setting();
             mysettings.Show();
         }
-        private void AdminDgridvLibrarybooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void AdminDgridvLibrarybooks_CellContentClick(object sender, DataGridViewCellEventArgs e) // for updating book information 
         {
             if (e.RowIndex >= 0 && AdminDgridvLibrarybooks.Columns[e.ColumnIndex].Name == "Update")
             {
@@ -89,15 +77,43 @@ namespace Library_Managment_System
                 updatebook.LoadBookInfo(book_ID);
             }
         }
-        private void Update_book_admin_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void DeleteUserBtn_Click(object sender, EventArgs e)
         {
             DeleteUser deleteUser = new DeleteUser();
+            this.Hide();
             deleteUser.Show();
+            this.Close();
+        }
+
+        private void Deletebook_Click(object sender, EventArgs e)
+        {
+            DeleteBook deletebook = new DeleteBook();
+            this.Hide();
+            deletebook.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Report report = new Report();
+            report.ShowDialog();
+        }
+
+        private void Logout_admin_Click(object sender, EventArgs e)
+        {
+            Login login_form = new Login();
+            this.Hide();
+            login_form.ShowDialog();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BorrowAction borrowAction = new BorrowAction();
+            this.Hide();
+            borrowAction.ShowDialog();
+            this.Close();
         }
     }
 }

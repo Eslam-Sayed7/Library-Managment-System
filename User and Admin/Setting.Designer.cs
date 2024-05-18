@@ -47,7 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.isAdmin_check_box = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -237,23 +236,11 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // isAdmin_check_box
-            // 
-            this.isAdmin_check_box.AutoSize = true;
-            this.isAdmin_check_box.Location = new System.Drawing.Point(524, 470);
-            this.isAdmin_check_box.Name = "isAdmin_check_box";
-            this.isAdmin_check_box.Size = new System.Drawing.Size(62, 17);
-            this.isAdmin_check_box.TabIndex = 36;
-            this.isAdmin_check_box.Text = "isAdmin";
-            this.isAdmin_check_box.UseVisualStyleBackColor = true;
-            this.isAdmin_check_box.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(921, 586);
-            this.Controls.Add(this.isAdmin_check_box);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox2);
@@ -302,6 +289,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox isAdmin_check_box;
     }
 }

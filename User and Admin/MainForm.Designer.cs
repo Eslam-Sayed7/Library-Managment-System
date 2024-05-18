@@ -59,7 +59,6 @@
             this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicationYR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel_sidebar.SuspendLayout();
             this.panel_logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -222,8 +221,7 @@
             this.category,
             this.isbn,
             this.publicationYR,
-            this.author,
-            this.Edit});
+            this.author});
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Poor Richard", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -339,13 +337,6 @@
             this.author.HeaderText = "Author";
             this.author.Name = "author";
             // 
-            // Edit
-            // 
-            this.Edit.FillWeight = 50F;
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 50;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -394,7 +385,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
         private System.Windows.Forms.DataGridViewTextBoxColumn publicationYR;
         private System.Windows.Forms.DataGridViewTextBoxColumn author;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit;
     }
 }
 

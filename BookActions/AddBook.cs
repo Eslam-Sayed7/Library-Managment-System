@@ -188,9 +188,9 @@ namespace Library_Managment_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AdminHome x = new AdminHome();
+            AdminHome newAdminhome = new AdminHome();
             this.Hide();
-            x.ShowDialog();
+            newAdminhome.ShowDialog();
             this.Close();
         }
 

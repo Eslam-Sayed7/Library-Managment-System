@@ -48,7 +48,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.IsAdmincomboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Loginbtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.PasswordSignUpTxtBox = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -127,9 +127,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(428, 105);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 20);
+            this.label5.Size = new System.Drawing.Size(96, 20);
             this.label5.TabIndex = 8;
-            this.label5.Text = "firstName";
+            this.label5.Text = "First Name";
             // 
             // FirstNameTextBox
             // 
@@ -152,9 +152,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(430, 153);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.Size = new System.Drawing.Size(95, 20);
             this.label6.TabIndex = 11;
-            this.label6.Text = "lastName";
+            this.label6.Text = "Last Name";
             // 
             // label8
             // 
@@ -170,9 +170,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(442, 383);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 20);
+            this.label9.Size = new System.Drawing.Size(79, 20);
             this.label9.TabIndex = 14;
-            this.label9.Text = "isAdmin";
+            this.label9.Text = "Is Admin";
             // 
             // label10
             // 
@@ -194,11 +194,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(418, 197);
+            this.label7.Location = new System.Drawing.Point(414, 197);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 20);
+            this.label7.Size = new System.Drawing.Size(127, 20);
             this.label7.TabIndex = 17;
-            this.label7.Text = "homeAddress";
+            this.label7.Text = "Home Address";
             // 
             // textBox4
             // 
@@ -224,7 +224,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 35);
             this.button1.TabIndex = 21;
-            this.button1.Text = "Sign_up";
+            this.button1.Text = "Sign up";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -232,7 +232,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(420, 484);
+            this.label11.Location = new System.Drawing.Point(435, 484);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(192, 20);
             this.label11.TabIndex = 22;
@@ -250,18 +250,18 @@
             this.IsAdmincomboBox1.Size = new System.Drawing.Size(102, 28);
             this.IsAdmincomboBox1.TabIndex = 24;
             // 
-            // button2
+            // Loginbtn
             // 
-            this.button2.BackColor = System.Drawing.Color.LightGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(650, 479);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 30);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Log_in";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.Loginbtn.BackColor = System.Drawing.Color.LightGray;
+            this.Loginbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Loginbtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Loginbtn.Location = new System.Drawing.Point(650, 479);
+            this.Loginbtn.Name = "Loginbtn";
+            this.Loginbtn.Size = new System.Drawing.Size(101, 30);
+            this.Loginbtn.TabIndex = 25;
+            this.Loginbtn.Text = "Log In";
+            this.Loginbtn.UseVisualStyleBackColor = false;
+            this.Loginbtn.Click += new System.EventHandler(this.Login_click);
             // 
             // label1
             // 
@@ -300,7 +300,7 @@
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.PasswordSignUpTxtBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Loginbtn);
             this.Controls.Add(this.IsAdmincomboBox1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button1);
@@ -349,7 +349,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox IsAdmincomboBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Loginbtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox PasswordSignUpTxtBox;

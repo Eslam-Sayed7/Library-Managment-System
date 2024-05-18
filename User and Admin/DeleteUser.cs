@@ -58,5 +58,13 @@ namespace Library_Managment_System.User_and_Admin
                 return;
             }
         }
+
+        private void backtohome_Click(object sender, EventArgs e)
+        {
+            AdminHome newAdminHomeFromUserDeletions = new AdminHome();
+            this.Hide();
+            newAdminHomeFromUserDeletions.ShowDialog();
+            this.Close();
+        }
     }
 }

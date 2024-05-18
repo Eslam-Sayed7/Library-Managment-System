@@ -158,9 +158,13 @@ namespace Library_Managment_System
                this.Close();
         }
 
-        private void UpdateBook_Load(object sender, EventArgs e)
-        {
 
+        private void BacktohomeBtn_Click(object sender, EventArgs e)
+        {
+            AdminHome x = new AdminHome();
+            this.Hide();
+            x.ShowDialog();
+            this.Close();
         }
     }
 }

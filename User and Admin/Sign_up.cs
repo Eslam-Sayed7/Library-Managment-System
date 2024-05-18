@@ -157,12 +157,12 @@ namespace Library_Managment_System
                 PasswordSignUpTxtBox.UseSystemPasswordChar = true;
             }
         }
-        private void button2_Click_1(object sender, EventArgs e)
+        private void Login_click(object sender, EventArgs e)
         {
-            Login x = new Login();
+            Login newLogin = new Login();
             this.Hide();
-            x.ShowDialog();
-            this.Close();
+            newLogin.ShowDialog();
+            //this.Close();
 
         }
     }

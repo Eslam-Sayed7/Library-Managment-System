@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CancelUpdate = new System.Windows.Forms.Button();
             this.Updatebtn = new System.Windows.Forms.Button();
             this.AvailableBox1 = new System.Windows.Forms.ComboBox();
             this.updateEdition = new System.Windows.Forms.TextBox();
@@ -49,17 +48,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.ComboAuthorID = new System.Windows.Forms.ComboBox();
             this.ComboCategoryId = new System.Windows.Forms.ComboBox();
+            this.BacktohomeBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // CancelUpdate
-            // 
-            this.CancelUpdate.Location = new System.Drawing.Point(442, 167);
-            this.CancelUpdate.Name = "CancelUpdate";
-            this.CancelUpdate.Size = new System.Drawing.Size(75, 37);
-            this.CancelUpdate.TabIndex = 50;
-            this.CancelUpdate.Text = "Cancel";
-            this.CancelUpdate.UseVisualStyleBackColor = true;
-            this.CancelUpdate.Click += new System.EventHandler(this.CancelUpdate_Click);
             // 
             // Updatebtn
             // 
@@ -252,15 +242,24 @@
             this.ComboCategoryId.Size = new System.Drawing.Size(121, 26);
             this.ComboCategoryId.TabIndex = 52;
             // 
+            // BacktohomeBtn
+            // 
+            this.BacktohomeBtn.Location = new System.Drawing.Point(442, 176);
+            this.BacktohomeBtn.Name = "BacktohomeBtn";
+            this.BacktohomeBtn.Size = new System.Drawing.Size(75, 37);
+            this.BacktohomeBtn.TabIndex = 53;
+            this.BacktohomeBtn.Text = "Back to HomePage";
+            this.BacktohomeBtn.UseVisualStyleBackColor = true;
+            // 
             // UpdateBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(579, 450);
+            this.Controls.Add(this.BacktohomeBtn);
             this.Controls.Add(this.ComboCategoryId);
             this.Controls.Add(this.ComboAuthorID);
-            this.Controls.Add(this.CancelUpdate);
             this.Controls.Add(this.Updatebtn);
             this.Controls.Add(this.AvailableBox1);
             this.Controls.Add(this.updateEdition);
@@ -281,15 +280,12 @@
             this.Controls.Add(this.label11);
             this.Name = "UpdateBook";
             this.Text = "UpdateBook";
-            this.Load += new System.EventHandler(this.UpdateBook_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button CancelUpdate;
         private System.Windows.Forms.Button Updatebtn;
         private System.Windows.Forms.ComboBox AvailableBox1;
         private System.Windows.Forms.TextBox updateEdition;
@@ -310,5 +306,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox ComboAuthorID;
         private System.Windows.Forms.ComboBox ComboCategoryId;
+        private System.Windows.Forms.Button BacktohomeBtn;
     }
 }

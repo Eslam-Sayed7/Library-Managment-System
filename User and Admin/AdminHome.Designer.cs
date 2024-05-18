@@ -50,19 +50,19 @@
             this.publicationYR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel_windowName = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_user_name = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel_logo = new System.Windows.Forms.Panel();
             this.panel_sidebar = new System.Windows.Forms.Panel();
-            this.Edit_info = new System.Windows.Forms.Button();
-            this.Update_book_admin = new System.Windows.Forms.Button();
-            this.AddBook = new System.Windows.Forms.Button();
-            this.DeleteUserBtn = new System.Windows.Forms.Button();
             this.Deletebook = new System.Windows.Forms.Button();
+            this.DeleteUserBtn = new System.Windows.Forms.Button();
+            this.Edit_info = new System.Windows.Forms.Button();
+            this.AddBook = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.Logout_admin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_main.SuspendLayout();
@@ -243,28 +243,28 @@
             this.Update.UseColumnTextForButtonValue = true;
             this.Update.Width = 70;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poor Richard", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(17, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "User Name";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel1.Location = new System.Drawing.Point(199, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(861, 55);
             this.panel1.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightGray;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(684, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "System Report";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel_windowName
             // 
@@ -315,10 +315,10 @@
             // 
             this.panel_sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel_sidebar.Controls.Add(this.Logout_admin);
+            this.panel_sidebar.Controls.Add(this.button2);
             this.panel_sidebar.Controls.Add(this.Deletebook);
             this.panel_sidebar.Controls.Add(this.DeleteUserBtn);
             this.panel_sidebar.Controls.Add(this.Edit_info);
-            this.panel_sidebar.Controls.Add(this.Update_book_admin);
             this.panel_sidebar.Controls.Add(this.AddBook);
             this.panel_sidebar.Controls.Add(this.panel_logo);
             this.panel_sidebar.Controls.Add(this.panel2);
@@ -328,6 +328,38 @@
             this.panel_sidebar.Size = new System.Drawing.Size(199, 661);
             this.panel_sidebar.TabIndex = 7;
             // 
+            // Deletebook
+            // 
+            this.Deletebook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.Deletebook.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Deletebook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Deletebook.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Deletebook.ForeColor = System.Drawing.Color.Transparent;
+            this.Deletebook.Location = new System.Drawing.Point(0, 353);
+            this.Deletebook.Name = "Deletebook";
+            this.Deletebook.Size = new System.Drawing.Size(199, 62);
+            this.Deletebook.TabIndex = 13;
+            this.Deletebook.Text = "Delete Book";
+            this.Deletebook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Deletebook.UseVisualStyleBackColor = false;
+            this.Deletebook.Click += new System.EventHandler(this.Deletebook_Click);
+            // 
+            // DeleteUserBtn
+            // 
+            this.DeleteUserBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.DeleteUserBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DeleteUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteUserBtn.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteUserBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.DeleteUserBtn.Location = new System.Drawing.Point(0, 291);
+            this.DeleteUserBtn.Name = "DeleteUserBtn";
+            this.DeleteUserBtn.Size = new System.Drawing.Size(199, 62);
+            this.DeleteUserBtn.TabIndex = 11;
+            this.DeleteUserBtn.Text = "Delete user";
+            this.DeleteUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeleteUserBtn.UseVisualStyleBackColor = false;
+            this.DeleteUserBtn.Click += new System.EventHandler(this.DeleteUserBtn_Click);
+            // 
             // Edit_info
             // 
             this.Edit_info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
@@ -335,7 +367,7 @@
             this.Edit_info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Edit_info.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Edit_info.ForeColor = System.Drawing.Color.Transparent;
-            this.Edit_info.Location = new System.Drawing.Point(0, 291);
+            this.Edit_info.Location = new System.Drawing.Point(0, 229);
             this.Edit_info.Name = "Edit_info";
             this.Edit_info.Size = new System.Drawing.Size(199, 62);
             this.Edit_info.TabIndex = 9;
@@ -343,22 +375,6 @@
             this.Edit_info.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Edit_info.UseVisualStyleBackColor = false;
             this.Edit_info.Click += new System.EventHandler(this.Edit_info_Click);
-            // 
-            // Update_book_admin
-            // 
-            this.Update_book_admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.Update_book_admin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Update_book_admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Update_book_admin.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Update_book_admin.ForeColor = System.Drawing.Color.Transparent;
-            this.Update_book_admin.Location = new System.Drawing.Point(0, 229);
-            this.Update_book_admin.Name = "Update_book_admin";
-            this.Update_book_admin.Size = new System.Drawing.Size(199, 62);
-            this.Update_book_admin.TabIndex = 7;
-            this.Update_book_admin.Text = "Update Book";
-            this.Update_book_admin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Update_book_admin.UseVisualStyleBackColor = false;
-            this.Update_book_admin.Click += new System.EventHandler(this.Update_book_admin_Click);
             // 
             // AddBook
             // 
@@ -376,36 +392,21 @@
             this.AddBook.UseVisualStyleBackColor = false;
             this.AddBook.Click += new System.EventHandler(this.AddBook_Click);
             // 
-            // DeleteUserBtn
+            // button2
             // 
-            this.DeleteUserBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.DeleteUserBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DeleteUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteUserBtn.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteUserBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.DeleteUserBtn.Location = new System.Drawing.Point(0, 353);
-            this.DeleteUserBtn.Name = "DeleteUserBtn";
-            this.DeleteUserBtn.Size = new System.Drawing.Size(199, 62);
-            this.DeleteUserBtn.TabIndex = 11;
-            this.DeleteUserBtn.Text = "Delete user";
-            this.DeleteUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeleteUserBtn.UseVisualStyleBackColor = false;
-            this.DeleteUserBtn.Click += new System.EventHandler(this.DeleteUserBtn_Click);
-            // 
-            // Deletebook
-            // 
-            this.Deletebook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.Deletebook.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Deletebook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Deletebook.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Deletebook.ForeColor = System.Drawing.Color.Transparent;
-            this.Deletebook.Location = new System.Drawing.Point(0, 415);
-            this.Deletebook.Name = "Deletebook";
-            this.Deletebook.Size = new System.Drawing.Size(199, 62);
-            this.Deletebook.TabIndex = 13;
-            this.Deletebook.Text = "Delete Book";
-            this.Deletebook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Deletebook.UseVisualStyleBackColor = false;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Transparent;
+            this.button2.Location = new System.Drawing.Point(0, 415);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(199, 59);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Borrow action";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Logout_admin
             // 
@@ -414,13 +415,14 @@
             this.Logout_admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Logout_admin.Font = new System.Drawing.Font("Poor Richard", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout_admin.ForeColor = System.Drawing.Color.Transparent;
-            this.Logout_admin.Location = new System.Drawing.Point(0, 477);
+            this.Logout_admin.Location = new System.Drawing.Point(0, 474);
             this.Logout_admin.Name = "Logout_admin";
             this.Logout_admin.Size = new System.Drawing.Size(199, 62);
-            this.Logout_admin.TabIndex = 14;
+            this.Logout_admin.TabIndex = 16;
             this.Logout_admin.Text = "Log Out";
             this.Logout_admin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Logout_admin.UseVisualStyleBackColor = false;
+            this.Logout_admin.Click += new System.EventHandler(this.Logout_admin_Click);
             // 
             // AdminHome
             // 
@@ -437,7 +439,6 @@
             this.panel_main.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AdminDgridvLibrarybooks)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel_logo.ResumeLayout(false);
             this.panel_logo.PerformLayout();
             this.panel_sidebar.ResumeLayout(false);
@@ -449,7 +450,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel_main;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel_windowName;
         private System.Windows.Forms.Panel panel2;
@@ -457,7 +457,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel_logo;
         private System.Windows.Forms.Panel panel_sidebar;
-        private System.Windows.Forms.Button Update_book_admin;
         private System.Windows.Forms.Button AddBook;
         private System.Windows.Forms.Button Edit_info;
         private System.Windows.Forms.DataGridView AdminDgridvLibrarybooks;
@@ -469,8 +468,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn publicationYR;
         private System.Windows.Forms.DataGridViewTextBoxColumn author;
         private System.Windows.Forms.DataGridViewButtonColumn Update;
-        private System.Windows.Forms.Button Logout_admin;
         private System.Windows.Forms.Button Deletebook;
         private System.Windows.Forms.Button DeleteUserBtn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Logout_admin;
     }
 }

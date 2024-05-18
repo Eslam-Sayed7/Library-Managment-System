@@ -41,7 +41,6 @@ namespace Library_Managment_System
                         phone_text_box.Text = reader["phone"].ToString();
                         email_text_box.Text = reader["email"].ToString();
                         password_text_box.Text = reader["password"].ToString();
-                        isAdmin_check_box.Checked = (bool)reader["isAdmin"];
                     }
                     reader.Close();
                 }
@@ -102,7 +101,6 @@ namespace Library_Managment_System
                             command.Parameters.AddWithValue("@phone1", phone_text_box.Text);
                             command.Parameters.AddWithValue("@email1", email_text_box.Text);
                             command.Parameters.AddWithValue("@password1", password_text_box.Text);
-                            command.Parameters.AddWithValue("@isAdmin1", isAdmin_check_box.Checked);
 
                             connection.Open();
                             int rowsAffected = command.ExecuteNonQuery();

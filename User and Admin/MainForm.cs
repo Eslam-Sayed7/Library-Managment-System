@@ -22,7 +22,6 @@ namespace Library_Managment_System
         SqlDataReader dr;
         public MainForm()
         {
-            label_user_name.Text = "user name : " + GlobalVariables.GlobalVariables.uid.ToString();
             InitializeComponent();
             Con = new SqlConnection(Dbconect.myConnection());
             LoadLibraryBooks();
@@ -34,9 +33,9 @@ namespace Library_Managment_System
         }
         private void logout_Click(object sender, EventArgs e)
         {
-            Login x = new Login();
+            Login loginform = new Login();
             this.Hide();
-            x.ShowDialog();
+            loginform.ShowDialog();
             this.Close();
 
         }
@@ -51,8 +50,8 @@ namespace Library_Managment_System
                 "FROM books AS bk " +
                 "JOIN category AS cat ON cat.categoryId = bk.categoryId " +
                 "JOIN authors AS au ON au.authorId = bk.authorId " +
-                "LEFT OUTER JOIN borrow AS bw ON bk.bookId = bw.bookId WHERE bw.bookId IS NULL"
-            , Con);
+                "LEFT OUTER JOIN borrow AS bw ON bk.bookId = bw.bookId AND  bw.userId = @LogginID " +
+                "WHERE bw.borrowingTransaction IS NULL OR bw.userId <> @LogginID;;", Con);
 
             // Add parameters to the SqlCommand object
             Cmd.Parameters.AddWithValue("@LogginID", GlobalVariables.GlobalVariables.uid);
