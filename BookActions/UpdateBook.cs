@@ -16,6 +16,7 @@ namespace Library_Managment_System
 {
     public partial class UpdateBook : Form
     {
+        int currbookId;
         public UpdateBook()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace Library_Managment_System
 
         public void LoadBookInfo(int _bookID_)
         {
+            currbookId = _bookID_;
             DBConnect Dbconect = new DBConnect();
             using (SqlConnection connection = new SqlConnection(Dbconect.myConnection()))
             {
@@ -66,7 +68,7 @@ namespace Library_Managment_System
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        updateBookId.Text = reader["bookId"].ToString();
+                        
                         updateBookTitle.Text = reader["title"].ToString();
                         updateBookISBN.Text = reader["isbn"].ToString();
                         ComboCategoryId.Text  = reader["categoryId"].ToString();
@@ -94,11 +96,9 @@ namespace Library_Managment_System
         public void SaveBookInfo()
         {
             bool EmptyFieldExist = false;
-            if (string.IsNullOrEmpty(updateBookId.Text.Trim())
-                || string.IsNullOrEmpty(updateBookTitle.Text.Trim())
+            if (string.IsNullOrEmpty(updateBookTitle.Text.Trim())
                 || string.IsNullOrEmpty(updateBookISBN.Text.Trim())
                 || string.IsNullOrEmpty(ComboCategoryId.Text.Trim())
-                //|| string.IsNullOrEmpty(UpdateBookpubYr.Text.Trim())
                 || string.IsNullOrEmpty(AvailableBox1.Text.Trim())
                 || string.IsNullOrEmpty(updateDescBox.Text.Trim())
                 || string.IsNullOrEmpty(updateEdition.Text.Trim())
@@ -124,7 +124,7 @@ namespace Library_Managment_System
                         using (SqlCommand command = new SqlCommand(updateQuery, connection))
                         {
                             command.Parameters.AddWithValue("@userId", GlobalVariables.GlobalVariables.uid);
-                            command.Parameters.AddWithValue("@bookId", updateBookId.Text);
+                            command.Parameters.AddWithValue("@bookId", currbookId);
                             command.Parameters.AddWithValue("@title", updateBookTitle.Text);
                             command.Parameters.AddWithValue("@isbn", updateBookISBN.Text);
                             string x = ComboCategoryId.Text;

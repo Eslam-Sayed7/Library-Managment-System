@@ -50,8 +50,9 @@ namespace Library_Managment_System
                 "FROM books AS bk " +
                 "JOIN category AS cat ON cat.categoryId = bk.categoryId " +
                 "JOIN authors AS au ON au.authorId = bk.authorId " +
-                "LEFT OUTER JOIN borrow AS bw ON bk.bookId = bw.bookId AND  bw.userId = @LogginID " +
-                "WHERE bw.borrowingTransaction IS NULL OR bw.userId <> @LogginID;;", Con);
+                "LEFT JOIN borrow AS bw ON bk.bookId = bw.bookId AND bw.userId = @LogginID " +
+                "WHERE bw.userId IS NULL;", Con);
+
 
             // Add parameters to the SqlCommand object
             Cmd.Parameters.AddWithValue("@LogginID", GlobalVariables.GlobalVariables.uid);

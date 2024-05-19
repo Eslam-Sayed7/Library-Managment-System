@@ -40,7 +40,7 @@ namespace Library_Managment_System
             Con.Open();
 
             // Create the SqlCommand object with the SQL query and connection
-            Cmd = new SqlCommand("SELECT [borrowingTransaction], [title], [categoryId], [isbn], [returnDate] FROM Books bk JOIN borrow bw ON bk.bookId = bw.bookId WHERE bw.userId = @LogginID", Con);
+            Cmd = new SqlCommand("SELECT [title], [categoryId], [isbn], [returnDate] FROM Books bk JOIN borrow bw ON bk.bookId = bw.bookId WHERE bw.userId = @LogginID", Con);
 
             // Add parameters to the SqlCommand object
             Cmd.Parameters.AddWithValue("@LogginID", logginID);
@@ -51,8 +51,7 @@ namespace Library_Managment_System
             while (dr.Read())
             {
                 i++;
-                // Assuming borrowingTtransaction is a typo and should be borrowingTransaction
-                DgridvMybooks.Rows.Add(i, dr["borrowingTransaction"].ToString(), dr["title"].ToString(), dr["categoryId"].ToString(), dr["isbn"].ToString(), dr["returnDate"].ToString());
+                DgridvMybooks.Rows.Add(i, dr["title"].ToString(), dr["categoryId"].ToString(), dr["isbn"].ToString(), dr["returnDate"].ToString());
             }
 
             dr.Close();

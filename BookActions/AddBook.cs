@@ -107,22 +107,40 @@ namespace Library_Managment_System
                 SqlConnection con2 = new SqlConnection(connectionString); 
                 con.Open();
                 con2.Open();
+
                 cmd = new SqlCommand("insert into books(bookId,title,isbn,categoryId,publicationYear,availability,description,edition,authorId)" +
                     "values(@bookId,@title,@isbn,@categoryId,@publicationYear,@availability,@description,@edition,@authorId);", con);
                 if (isNum(textBox1.Text)) { 
-                SqlCommand cmd2 = new SqlCommand("select bookId from books " +
-                    "where bookId=" + int.Parse(textBox1.Text), con2);
-                // Check the BookId in the database
+                SqlCommand cmd2 = new SqlCommand("select bookId from books where bookId = " + int.Parse(textBox1.Text), con2);
+               // SqlCommand ISBNCHECK = new SqlCommand("select isbn from books WHERE isbn = @isbn", con2);
+                cmd2.Parameters.AddWithValue("@bookId", int.Parse(textBox1.Text));
+                //ISBNCHECK.Parameters.AddWithValue("@isbn", textBox3.Text);
+                /*if (ISBNCHECK.ExecuteScalar() != null)
+                {
+                    MessageBox.Show("ISBN already exists");
+                    return;
+                }
+                    // Check the BookId in the database*/
                
-                    cmd2.Parameters.AddWithValue("@bookId", int.Parse(textBox1.Text));
                     SqlDataReader reader = cmd2.ExecuteReader();
+                    //SqlDataReader ISBNEXIST = ISBNCHECK.ExecuteReader();
 
                     if (reader.HasRows)
                     {
                         reader.Read();
                         int retrievedBookId = reader.GetInt32(0);
+                        //ISBNEXIST.Read();
+                        //string retrievedISBN = ISBNEXIST.GetString(0);
+                        //ISBNEXIST.Close();
                         if (retrievedBookId == int.Parse(textBox1.Text))
                         {
+                            SqlConnection con3 = new SqlConnection(connectionString);
+                            con3.Open();
+                            string AddtoCopiesSQL = "insert into bookCopies(bookId) values (@bookId);";
+                            SqlCommand cmd3 = new SqlCommand(AddtoCopiesSQL, con3);
+                            cmd3.Parameters.AddWithValue("@bookId", int.Parse(textBox1.Text));
+                            cmd3.ExecuteNonQuery();
+                            con3.Close();
                             MessageBox.Show("You Entered an existing id  :\\");
                             return;
                         }
