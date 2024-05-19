@@ -1,64 +1,65 @@
-CREATE TABLE category(
-	categoryId INT PRIMARY KEY IDENTITY(1,1),
-	[name] VARCHAR(20) NOT NULL
+CREATE TABLE [dbo].[category] (
+    [categoryId] INT          IDENTITY (1, 1) NOT NULL,
+    [name]       VARCHAR (20) NOT NULL,
+    PRIMARY KEY CLUSTERED ([categoryId] ASC)
 );
 
-CREATE TABLE authors(
-	authorId INT PRIMARY KEY,
-	[name] VARCHAR(20) NOT NULL
+CREATE TABLE [dbo].[authors] (
+    [authorId] INT          NOT NULL,
+    [name]     VARCHAR (20) NOT NULL,
+    PRIMARY KEY CLUSTERED ([authorId] ASC)
 );
 
-CREATE TABLE bookcopies(
-	bookId INT,
-	[copy] INT
 
-	CONSTRAINT fk_bookCopies FOREIGN KEY (bookId)
-	REFERENCES books(bookId) ON DELETE NO ACTION
+CREATE TABLE [dbo].[bookCopies] (
+    [bookId] INT NOT NULL,
+    [copyId] INT IDENTITY (1, 1) NOT NULL,
+    PRIMARY KEY CLUSTERED ([bookId] ASC, [copyId] ASC),
+    CONSTRAINT [fk_bookCopies_books] FOREIGN KEY ([bookId]) REFERENCES [dbo].[books] ([bookId])
 );
 
-CREATE TABLE books(
-	bookId INT PRIMARY KEY ,
-	title VARCHAR(50) NOT NULL,
-	isbn VARCHAR(50),
-	categoryId INT NOT NULL,
-	publicationYear INT,
-	[availability] BIT,
-	[description] VARCHAR(300),
-	edition VARCHAR(15),
-	authorId INT NOT NULL, 
-	
-	CONSTRAINT fk_categorizedby FOREIGN KEY (categoryId) 
-	REFERENCES category(categoryId) ON DELETE NO ACTION,
 
-	--CONSTRAINT fk_bookCopies FOREIGN KEY (bookId)
-	--REFERENCES bookcopies(bookId) ON DELETE NO ACTION,
-
-	CONSTRAINT fk_writtenby FOREIGN KEY (authorId)
-	REFERENCES authors(authorId) ON DELETE NO ACTION
+CREATE TABLE [dbo].[books] (
+    [bookId]          INT           NOT NULL,
+    [title]           VARCHAR (50)  NOT NULL,
+    [isbn]            VARCHAR (50)  NULL,
+    [categoryId]      INT           NOT NULL,
+    [publicationYear] INT           NULL,
+    [availability]    BIT           NULL,
+    [description]     VARCHAR (300) NULL,
+    [edition]         VARCHAR (15)  NULL,
+    [authorId]        INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([bookId] ASC),
+    CONSTRAINT [fk_categorizedby] FOREIGN KEY ([categoryId]) REFERENCES [dbo].[category] ([categoryId]),
+    CONSTRAINT [fk_writtenby] FOREIGN KEY ([authorId]) REFERENCES [dbo].[authors] ([authorId])
 );
 
-CREATE TABLE users (
-	UserId INT PRIMARY KEY IDENTITY(1,1),
-	firstName VARCHAR(20) NOT NULL,
-	lastName VARCHAR (20) NOT NULL,
-	homeAddress VARCHAR(20),
-	phone VARCHAR(20),
-	email VARCHAR (20) NOT NULL,
-	isAdmin BIT NOT NULL --boolean value indicate if the user is and admin  
-);	
+CREATE TABLE [dbo].[users] (
+    [UserId]      INT          IDENTITY (1, 1) NOT NULL,
+    [firstName]   VARCHAR (20) NOT NULL,
+    [lastName]    VARCHAR (20) NOT NULL,
+    [homeAddress] VARCHAR (20) NULL,
+    [phone]       VARCHAR (20) NULL,
+    [email]       VARCHAR (20) NOT NULL,
+    [password]    VARCHAR (30) NOT NULL,
+    [isAdmin]     BIT          NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
 
-CREATE TABLE borrow(
-	borrowingTransaction INT PRIMARY KEY IDENTITY(1,1),
-	bookId INT,
-	userId INT NOT NULL,
-	borrowDate DATE NOT NULL,
-	returnDate DATE NOT NULL, 
-
-	CONSTRAINT fk_borrowingBook FOREIGN KEY (bookId)
-	REFERENCES books(bookId) ON DELETE NO ACTION,
-
-	CONSTRAINT fk_IsBorrowing FOREIGN KEY (userId)
-	REFERENCES users(UserId) ON DELETE NO ACTION
+CREATE TABLE [dbo].[borrow] (
+    [bookId]     INT  NOT NULL,
+    [userId]     INT  NOT NULL,
+    [borrowDate] DATE NOT NULL,
+    [returnDate] DATE NOT NULL,
+    PRIMARY KEY CLUSTERED ([userId] ASC, [bookId] ASC),
+    CONSTRAINT [fk_borrowingBook] FOREIGN KEY ([bookId]) REFERENCES [dbo].[books] ([bookId]),
+    CONSTRAINT [fK_IsBorrowing] FOREIGN KEY ([userId]) REFERENCES [dbo].[users] ([UserId])
 );
 
 -- some reports for analysis of the trafic on the system
+SELECT TOP 1 b.title, COUNT(br.bookId) AS BorrowCount
+FROM dbo.borrow br
+JOIN dbo.books b
+ON br.bookId = b.bookId
+GROUP BY b.title 
+ORDER BY BorrowCount DESC;
