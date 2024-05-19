@@ -106,9 +106,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 207);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 18);
+            this.label5.Size = new System.Drawing.Size(76, 18);
             this.label5.TabIndex = 14;
-            this.label5.Text = "CategoryId";
+            this.label5.Text = "Category";
             // 
             // label6
             // 
@@ -154,11 +154,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(28, 421);
+            this.label10.Location = new System.Drawing.Point(36, 421);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 18);
+            this.label10.Size = new System.Drawing.Size(57, 18);
             this.label10.TabIndex = 19;
-            this.label10.Text = "AuthorID";
+            this.label10.Text = "Author";
             // 
             // textBox2
             // 
@@ -240,7 +240,7 @@
             this.textBox4.FormattingEnabled = true;
             this.textBox4.Location = new System.Drawing.Point(143, 204);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 26);
+            this.textBox4.Size = new System.Drawing.Size(163, 26);
             this.textBox4.TabIndex = 30;
             // 
             // textBox8
@@ -250,7 +250,7 @@
             this.textBox8.FormattingEnabled = true;
             this.textBox8.Location = new System.Drawing.Point(143, 413);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(121, 26);
+            this.textBox8.Size = new System.Drawing.Size(163, 26);
             this.textBox8.TabIndex = 31;
             // 
             // AddBook

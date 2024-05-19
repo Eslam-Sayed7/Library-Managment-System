@@ -69,12 +69,14 @@ namespace Library_Managment_System
         }
         private void AdminDgridvLibrarybooks_CellContentClick(object sender, DataGridViewCellEventArgs e) // for updating book information 
         {
+            
             if (e.RowIndex >= 0 && AdminDgridvLibrarybooks.Columns[e.ColumnIndex].Name == "Update")
             {
                 UpdateBook updatebook = new UpdateBook();
                 updatebook.Show();
                 int book_ID = int.Parse(AdminDgridvLibrarybooks.Rows[e.RowIndex].Cells[1].Value.ToString());
                 updatebook.LoadBookInfo(book_ID);
+                this.Close();
             }
         }
         

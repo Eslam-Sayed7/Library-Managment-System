@@ -35,8 +35,8 @@ namespace Library_Managment_System
                 ComboAuthorID.Items.Clear();
                 ComboCategoryId.Items.Clear();
                 connection.Open();
-                SqlCommand getallcategoryIDs = new SqlCommand("select categoryId from category", connection);
-                SqlCommand getallAurthorIDs = new SqlCommand("select authorId from authors", connection);
+                SqlCommand getallcategoryIDs = new SqlCommand("select * from category", connection);
+                SqlCommand getallAurthorIDs = new SqlCommand("select * from authors", connection);
                 getallcategoryIDs.ExecuteNonQuery();
                 getallAurthorIDs.ExecuteNonQuery();
                 DataTable categoryIDsTable = new DataTable();
@@ -48,11 +48,11 @@ namespace Library_Managment_System
 
                 foreach (DataRow dr in categoryIDsTable.Rows)
                 {
-                    ComboCategoryId.Items.Add(dr["categoryId"].ToString());
+                    ComboCategoryId.Items.Add(dr["categoryId"].ToString() + " = " + dr["name"].ToString());
                 }
                 foreach (DataRow dr in authorIDsTable.Rows)
                 {
-                    ComboAuthorID.Items.Add(dr["authorId"].ToString());
+                    ComboAuthorID.Items.Add(dr["authorId"].ToString() + " = " + dr["name"].ToString());
                 }
 
                 // loading book info from database
@@ -127,12 +127,16 @@ namespace Library_Managment_System
                             command.Parameters.AddWithValue("@bookId", updateBookId.Text);
                             command.Parameters.AddWithValue("@title", updateBookTitle.Text);
                             command.Parameters.AddWithValue("@isbn", updateBookISBN.Text);
-                            command.Parameters.AddWithValue("@categoryId", ComboCategoryId.Text);
+                            string x = ComboCategoryId.Text;
+                            int y = x[0] - '0';
+                            command.Parameters.AddWithValue("@categoryId", y);
                             command.Parameters.AddWithValue("@publicationYear", UpdateBookpubYr.Text);
                             command.Parameters.AddWithValue("@availability", AvailableBox1.SelectedIndex ^ 1);
                             command.Parameters.AddWithValue("@edition", updateEdition.Text);
                             command.Parameters.AddWithValue("@description", updateDescBox.Text);
-                            command.Parameters.AddWithValue("@authorId", ComboAuthorID.Text);
+                            x = ComboAuthorID.Text;
+                            y = x[0] - '0';
+                            command.Parameters.AddWithValue("@authorId", y);
 
                             connection.Open();
                             int rowsAffected = command.ExecuteNonQuery();
@@ -158,8 +162,7 @@ namespace Library_Managment_System
                this.Close();
         }
 
-
-        private void BacktohomeBtn_Click(object sender, EventArgs e)
+        private void BacktohomeBtn_Click_1(object sender, EventArgs e)
         {
             AdminHome x = new AdminHome();
             this.Hide();

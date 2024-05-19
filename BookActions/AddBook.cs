@@ -145,7 +145,9 @@ namespace Library_Managment_System
                 //=============================================================
                 cmd.Parameters.AddWithValue("@isbn", textBox3.Text);
                 //=============================================================
-                cmd.Parameters.AddWithValue("@categoryId", int.Parse(textBox4.Text));
+                string x = textBox4.Text;
+                int y = x[0] - '0';
+                cmd.Parameters.AddWithValue("@categoryId",y);
                 //=============================================================
                 if (isNum(textBox5.Text))
                 {
@@ -173,9 +175,9 @@ namespace Library_Managment_System
 
                 cmd.Parameters.AddWithValue("@edition", textBox7.Text);
                 //=============================================================
-
-
-                cmd.Parameters.AddWithValue("@authorId", int.Parse(textBox8.Text));
+                x = textBox8.Text;
+                y = x[0] - '0';
+                cmd.Parameters.AddWithValue("@authorId", y);
                 //=============================================================
 
                 cmd.ExecuteNonQuery();
@@ -204,14 +206,14 @@ namespace Library_Managment_System
             textBox4.Items.Clear();
             con3 = new SqlConnection(connectionString);
             con3.Open();
-            SqlCommand tmp = new SqlCommand("select categoryId from category", con3);
+            SqlCommand tmp = new SqlCommand("select * from category", con3);
             tmp.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(tmp);
             da.Fill(dt);
             foreach(DataRow dr in dt.Rows)
             {
-                textBox4.Items.Add(dr["categoryId"].ToString());
+                textBox4.Items.Add(dr["categoryId"].ToString() + " = " + dr["name"].ToString());
             }
             con3.Close();
 
@@ -221,14 +223,14 @@ namespace Library_Managment_System
             textBox8.Items.Clear();
             con3 = new SqlConnection(connectionString);
             con3.Open();
-            SqlCommand tmp = new SqlCommand("select authorId from authors", con3);
+            SqlCommand tmp = new SqlCommand("select * from authors", con3);
             tmp.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(tmp);
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                textBox8.Items.Add(dr["authorId"].ToString());
+                textBox8.Items.Add(dr["authorId"].ToString() + " = " + dr["name"].ToString());
             }
             con3.Close();
 

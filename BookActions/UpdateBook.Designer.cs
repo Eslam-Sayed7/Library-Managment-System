@@ -120,9 +120,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(44, 414);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 18);
+            this.label10.Size = new System.Drawing.Size(57, 18);
             this.label10.TabIndex = 40;
-            this.label10.Text = "AuthorID";
+            this.label10.Text = "Author";
             // 
             // label9
             // 
@@ -170,9 +170,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(28, 205);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 18);
+            this.label5.Size = new System.Drawing.Size(76, 18);
             this.label5.TabIndex = 35;
-            this.label5.Text = "CategoryId";
+            this.label5.Text = "Category";
             // 
             // label4
             // 
@@ -229,7 +229,7 @@
             this.ComboAuthorID.FormattingEnabled = true;
             this.ComboAuthorID.Location = new System.Drawing.Point(140, 408);
             this.ComboAuthorID.Name = "ComboAuthorID";
-            this.ComboAuthorID.Size = new System.Drawing.Size(121, 26);
+            this.ComboAuthorID.Size = new System.Drawing.Size(170, 26);
             this.ComboAuthorID.TabIndex = 51;
             // 
             // ComboCategoryId
@@ -239,7 +239,7 @@
             this.ComboCategoryId.FormattingEnabled = true;
             this.ComboCategoryId.Location = new System.Drawing.Point(140, 202);
             this.ComboCategoryId.Name = "ComboCategoryId";
-            this.ComboCategoryId.Size = new System.Drawing.Size(121, 26);
+            this.ComboCategoryId.Size = new System.Drawing.Size(170, 26);
             this.ComboCategoryId.TabIndex = 52;
             // 
             // BacktohomeBtn
@@ -250,13 +250,14 @@
             this.BacktohomeBtn.TabIndex = 53;
             this.BacktohomeBtn.Text = "Back to HomePage";
             this.BacktohomeBtn.UseVisualStyleBackColor = true;
+            this.BacktohomeBtn.Click += new System.EventHandler(this.BacktohomeBtn_Click_1);
             // 
             // UpdateBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(579, 450);
+            this.ClientSize = new System.Drawing.Size(540, 450);
             this.Controls.Add(this.BacktohomeBtn);
             this.Controls.Add(this.ComboCategoryId);
             this.Controls.Add(this.ComboAuthorID);

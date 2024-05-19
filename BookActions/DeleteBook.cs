@@ -38,18 +38,24 @@ namespace Library_Managment_System
         private void button1_Click(object sender, EventArgs e)
         {
             string conncetion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename= D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf;Integrated Security=False;Connect Timeout=30;";
-            SqlConnection con=new SqlConnection(conncetion);
-            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlConnection con = new SqlConnection(conncetion);
+            SqlCommand cmd = new SqlCommand();
+            con.Open();
             if (isDigit(textBox1.Text))
             {
-                string sql = "delete books where bookId=" + int.Parse(textBox1.Text);
+                try{
+                    string sql = "delete books where bookId = " + int.Parse(textBox1.Text);
+                    cmd = new SqlCommand(sql, con);
+                    cmd.ExecuteNonQuery();
 
-                con.Open();
-                adapter.UpdateCommand = con.CreateCommand();
-                adapter.UpdateCommand.CommandText = sql;
-                adapter.UpdateCommand.ExecuteNonQuery();
-                MessageBox.Show("The book Has been Deleted");
-                con.Close();
+                    MessageBox.Show("The book Has been Deleted");
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("the book is ordered you cannot remove it");
+                    return;
+                }
             }
             else
             {
