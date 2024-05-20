@@ -20,7 +20,7 @@ The Library Management System is a C# application designed to streamline the man
    ```bash
    git clone https://github.com/Eslam-Sayed7/Library-Managment-System.git
 2. Open Library Management System.sln in Visual Studio.
-3. Configure the database connection in App.config.
+3. Configure the database connection in App.config and DBconnect class.
 4. Build and run the application.
 ### Database Setup
 1. Restore the database using **LibraryDB.bacpac** in SQL Server.
