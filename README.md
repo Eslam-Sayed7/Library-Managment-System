@@ -14,6 +14,7 @@ The Library Management System is a C# application designed to streamline the man
 ### Prerequisites
 - .NET Framework
 - SQL Server
+<<<<<<< HEAD
 ### Data Model and ER diagram
 
 <p align="center">
@@ -31,6 +32,8 @@ The Library Management System is a C# application designed to streamline the man
   <br>
   <em>Figure 1: Conceptual Diagram</em>
 </p>
+=======
+>>>>>>> 2083537c5bac1307be8da6e94df53638a28cc4a0
 
 ### Installation
 1. Clone the repository:
@@ -46,3 +49,14 @@ The Library Management System is a C# application designed to streamline the man
 1. Launch the application.
 2. Navigate through the main menu to access various features.
 3. Manage books, users, and transactions as needed.
+<<<<<<< HEAD
+=======
+### Contributing
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+
+### License
+This project is licensed under the MIT License.
+
+### Contact
+For inquiries or issues, please open an issue in the repository or contact the maintainer.
+>>>>>>> 2083537c5bac1307be8da6e94df53638a28cc4a0
