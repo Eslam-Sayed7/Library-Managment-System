@@ -86,7 +86,7 @@ namespace Library_Managment_System
                 try
                 {
                     string updateQuery = "UPDATE users " +
-                                         "SET firstName = @firstname, lastName = @lastname, homeAddress = @homeadderss, phone = @phone1, email = @email1, password = @password1, isAdmin = @isAdmin1 " +
+                                         "SET firstName = @firstname, lastName = @lastname, homeAddress = @homeadderss, phone = @phone1, email = @email1, password = @password1 " +
                                          "WHERE UserId = @userId";
                     DBConnect Dbconect = new DBConnect();
                     using (SqlConnection connection = new SqlConnection(Dbconect.myConnection()))

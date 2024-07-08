@@ -20,7 +20,6 @@ namespace Library_Managment_System
         public Login()
         {
             InitializeComponent();
-            
         }
         public Login(string email, string password)
         {

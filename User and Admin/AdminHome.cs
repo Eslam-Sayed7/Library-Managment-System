@@ -30,8 +30,8 @@ namespace Library_Managment_System
         }
         public void LoadLibraryBooks() // load available library books for a user to borrow 
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf;Integrated Security=False;Connect Timeout=30";
-             AdminHomeConnection = new SqlConnection(connectionString);
+            DBConnect Dbconect = new DBConnect();
+            AdminHomeConnection = new SqlConnection(Dbconect.myConnection());
             int i = 0;
             AdminDgridvLibrarybooks.Rows.Clear();
             AdminHomeConnection.Open();

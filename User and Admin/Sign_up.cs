@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using LiveLibraryDB;
 namespace Library_Managment_System
 {
     public partial class Sign_up : Form
@@ -93,8 +94,9 @@ namespace Library_Managment_System
             {
                 //change the path on your local computer 
 
-                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf"";Integrated Security=False;Connect Timeout=30;";
-                con = new SqlConnection(connectionString);
+                DBConnect Dbconect = new DBConnect();
+                con = new SqlConnection(Dbconect.myConnection());
+
                 con.Open();
                 cmd = new SqlCommand("insert into users(firstName,lastName,homeAddress,phone,email,password,isAdmin)values(@firstName,@lastName,@homeAddress,@phone,@email,@password,@isAdmin);", con);
                 cmd.Parameters.AddWithValue("@firstName", FirstNameTextBox.Text);

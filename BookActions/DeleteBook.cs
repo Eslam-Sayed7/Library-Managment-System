@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using LiveLibraryDB;
+using System;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data.Sql;
 namespace Library_Managment_System
 {
     public partial class DeleteBook : Form
@@ -37,8 +29,8 @@ namespace Library_Managment_System
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string conncetion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename= D:\CS\2 - Second year\[2] Second term\DataBases\Project\Library Managment System\libraryDB\LiveLibraryDB.mdf;Integrated Security=False;Connect Timeout=30;";
-            SqlConnection con = new SqlConnection(conncetion);
+            DBConnect Dbconect = new DBConnect();
+            SqlConnection con = new SqlConnection(Dbconect.myConnection());
             SqlCommand cmd = new SqlCommand();
             con.Open();
             if (isDigit(textBox1.Text))

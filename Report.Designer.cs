@@ -64,6 +64,7 @@
             this.label1.Size = new System.Drawing.Size(222, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "The most borrowed book";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
